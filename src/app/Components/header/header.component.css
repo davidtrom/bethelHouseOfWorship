@@ -1,8 +1,8 @@
 #logo{
-    max-width: 140%;
+    max-width: 100%;
     height: auto;
-    padding-left: 40%;
-    /* padding-right: 10%; */ 
+    padding-left: 30%; 
+    padding-right: 1%;
 }
 
 header{
@@ -10,7 +10,6 @@ header{
 }
 
 .title{
-    /* padding-left: 5%; */
     color: white;
     font-size: 21pt;
     font-family: Georgia, 'Times New Roman', Times, serif;

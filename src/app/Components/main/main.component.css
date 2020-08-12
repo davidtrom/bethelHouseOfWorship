@@ -1,0 +1,24 @@
+.flex-container{
+    font-size: 13pt;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.title{
+    color: #422da3;
+    text-align: center;
+    padding-bottom: 1.5%;
+}
+
+hr{
+    /* margin: 0 20%; */
+    border: 1px solid #422da3;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.text{
+    padding-top: 1.5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
