@@ -21,4 +21,48 @@ hr{
     padding-top: 1.5%;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 1.5%;
 }
+
+h3{
+    color: #422da3;
+}
+
+#altarPic{
+    text-align: center;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+#altarText{
+    padding-top: 3%;
+    padding-right: 4%;
+    color: white;
+}
+
+.altarContainer{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    max-width: 100%;
+    background-color: #004f8c;
+    background-image: url("../../../assets/brushed-alum.png");
+}
+
+.joinUs{
+    padding-top: 7%;
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+.responsive{
+    max-width: 100%;
+    height: auto;
+}
+
+#kneelingCross{
+    padding-top: 5%;
+}
+
+
+
+
