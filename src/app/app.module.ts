@@ -10,6 +10,8 @@ import { MainComponent } from './Components/main/main.component';
 import { ServicesComponent } from './Components/services/services.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { MissionComponent } from './Components/mission/mission.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FooterComponent } from './Components/footer/footer.component';
     MainComponent,
     ServicesComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MissionComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
