@@ -12,6 +12,8 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MissionComponent } from './Components/mission/mission.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
+import { SupportComponent } from './Components/support/support.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ContactComponent } from './Components/contact/contact.component';
     HeaderComponent,
     FooterComponent,
     MissionComponent,
-    ContactComponent
+    ContactComponent,
+    TestimonialsComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,
