@@ -32,3 +32,8 @@ hr{
     padding-left: 10%;
     padding-right: 10%;
 }
+
+.missionTextContainer{
+    background-image: url("../../../assets/scroll2.png");
+    background-position: center;
+}
