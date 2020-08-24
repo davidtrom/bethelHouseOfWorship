@@ -1,1 +1,98 @@
-<p>contact works!</p>
+<div class="flex-container">
+    <div class="heading">
+        <h1>Send a Message or Prayer Request</h1>
+        <div id="headingDetails">
+            * - Required Fields 
+        </div>
+    </div>
+    <div class="container">
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="panel panel-default">
+                
+                <div class="body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name:*</label>
+                            <input id="firstName" formControlName="firstName" type="text" class="form-control" placeholder="First Name" [ngClass]="{'is-invalid': form.firstName.errors && (form.firstName.touched || form.firstName.dirty)}">
+                            <div *ngIf="form.firstName.errors && (form.firstName.touched || form.firstName.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.firstName.errors.required'>*First Name is Required</div>    
+                                <div *ngIf='form.firstName.errors.pattern'>*Please Enter a Valid First Name</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name:*</label>
+                            <input id="lastName" formControlName="lastName" type="text" class="form-control" placeholder="Last Name" [ngClass]="{'is-invalid': form.lastName.errors && (form.lastName.touched || form.lastName.dirty)}">
+                            <div *ngIf="form.lastName.errors && (form.lastName.touched || form.lastName.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.lastName.errors.required'>*Last Name is Required</div>
+                                <div *ngIf='form.lastName.errors.pattern'>*Please Enter a Valid Last Name</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email Address:*</label>
+                            <input type="email" formControlName="email" class="form-control" id="email" placeholder="yourAddress@email.com" [ngClass]="{'is-invalid': form.email.errors && (form.email.touched || form.email.dirty)}">
+                            <div *ngIf="form.email.errors && (form.email.touched || form.email.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.email.errors.required'>*Email is Required</div>
+                                <div *ngIf='form.email.errors.pattern'>*Please Enter a Valid Email Address</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="phoneNum">Phone Number:*</label>
+                            <input type="text" formControlName="phoneNum" class="form-control" id="phoneNum" placeholder="302-555-7890" [ngClass]="{'is-invalid': form.phoneNum.errors && (form.phoneNum.touched || form.phoneNum.dirty)}">
+                            <div *ngIf="form.phoneNum.errors && (form.phoneNum.touched || form.phoneNum.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.phoneNum.errors.required'>*Phone Number is Required</div>
+                                <div *ngIf='form.phoneNum.errors.minlength'>*Phone Number must be at least 10 digits</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthDate">Birthday:*</label>
+                            <input type="date" formControlName="birthDate" class="form-control" id="birthDate" placeholder="yyyy-mm-dd" [ngClass]="{'is-invalid': form.birthDate.errors && (form.birthDate.touched || form.birthDate.dirty)}">
+                            <div *ngIf="form.birthDate.errors && (form.birthDate.touched || form.birthDate.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.birthDate.errors.required'>*Birth Date is Required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="reasonForContact">Reason for Contact:*</label>
+                            <input type="text" formControlName="reasonForContact" class="form-control" id="reasonForContact" placeholder="Reason for Contact" [ngClass]="{'is-invalid': form.reasonForContact.errors && (form.reasonForContact.touched || form.reasonForContact.dirty)}">
+                            <div *ngIf="form.reasonForContact.errors && (form.reasonForContact.touched || form.reasonForContact.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.reasonForContact.errors.required'>*Reason For Contact is Required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="preferredApptTime">Preferred Appointment Time:*</label>
+                            <input type="text" formControlName="preferredApptTime" class="form-control" id="preferredApptTime" placeholder="Preferred Appointment Time" [ngClass]="{'is-invalid': form.preferredApptTime.errors && (form.preferredApptTime.touched || form.preferredApptTime.dirty)}">
+                            <div *ngIf="form.preferredApptTime.errors && (form.preferredApptTime.touched || form.preferredApptTime.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.preferredApptTime.errors.required'>*Preferred Appointment Time is Required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="message">Message:</label>
+                            <input type="text" formControlName="message" class="form-control" id="message" placeholder="Message">
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="formNotValid" class="formNotValid">
+                    *Please enter all required fields before submitting
+                </div>
+
+                <div class="form-group" id="btnSubmit">                 
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>    
+            </div>
+        </form>
+    </div>
+</div>
