@@ -14,6 +14,7 @@ import { MissionComponent } from './Components/mission/mission.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { SupportComponent } from './Components/support/support.component';
+import { PrayerRequestComponent } from './Components/prayer-request/prayer-request.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SupportComponent } from './Components/support/support.component';
     MissionComponent,
     ContactComponent,
     TestimonialsComponent,
-    SupportComponent
+    SupportComponent,
+    PrayerRequestComponent
   ],
   imports: [
     BrowserModule,

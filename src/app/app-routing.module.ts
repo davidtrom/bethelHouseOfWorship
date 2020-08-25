@@ -6,6 +6,7 @@ import { MissionComponent } from './Components/mission/mission.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { SupportComponent } from './Components/support/support.component';
+import { PrayerRequestComponent } from './Components/prayer-request/prayer-request.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'testimonials', component: TestimonialsComponent},
   { path: 'support', component: SupportComponent},
+  { path: 'prayer-request', component: PrayerRequestComponent},
 
   // if no route, redirect to home
   { path: '**', redirectTo: '' }

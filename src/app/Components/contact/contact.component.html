@@ -7,9 +7,16 @@
     </div>
 
     <hr>
-    
-    <div class="container">
+
+    <!-- <div class="buttons">
         
+    </div> -->
+
+
+
+
+
+    <div class="container">
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="panel panel-default">
                 
@@ -57,7 +64,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="city">City:*</label>
-                            <input type="text" formControlName="city" class="form-control" id="city" placeholder="Dover" [ngClass]="{'is-invalid': form.city.errors && (form.city.touched || form.city.dirty)}">
+                            <input type="text" formControlName="city" class="form-control" id="city" placeholder="City" [ngClass]="{'is-invalid': form.city.errors && (form.city.touched || form.city.dirty)}">
                             <div *ngIf="form.city.errors && (form.citye.touched || form.city.dirty)" class="invalid-feedback">
                                 <div *ngIf='form.city.errors.required'>*City is Required</div>
                             </div>
@@ -65,7 +72,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="state">State:*</label>
-                            <input type="text" formControlName="state" class="form-control" id="state" placeholder="DE" [ngClass]="{'is-invalid': form.state.errors && (form.state.touched || form.state.dirty)}">
+                            <input type="text" formControlName="state" class="form-control" id="state" placeholder="State" [ngClass]="{'is-invalid': form.state.errors && (form.state.touched || form.state.dirty)}">
                             <div *ngIf="form.state.errors && (form.state.touched || form.state.dirty)" class="invalid-feedback">
                                 <div *ngIf='form.state.errors.required'>*State is Required</div>
                             </div>

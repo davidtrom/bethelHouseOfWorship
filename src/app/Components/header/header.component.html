@@ -41,18 +41,36 @@
                             Services  
                         </a>
                     </li>
+
+                    <li class="nav-item dropdown" ngbDropdown id="infoDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white" aria-haspopup="true" aria-expanded="false">Testimonials</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" a [routerLink]="['/testimonials']" (click)="collapse()">View Testimonials</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" a [routerLink]="['/add-testimonial']"(click)="collapse()">Add Testimonial</a>
+                        </div>
+                    </li>
                     
-                    <li class="nav-item" ngbDropdown>
+                    <!-- <li class="nav-item" ngbDropdown>
                         <a class="nav-link" a [routerLink]="['/testimonials']" routerLinkActive="router-link-active"  style="color:white" role="button" (click)="collapse()">
                             Testimonials  
                         </a> 
+                    </li> -->
+
+                    <li class="nav-item dropdown" ngbDropdown id="infoDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white" aria-haspopup="true" aria-expanded="false">Contact</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" a [routerLink]="['/contact']" (click)="collapse()">Send Message</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" a [routerLink]="['/prayer-request']"(click)="collapse()">Prayer Request</a>
+                        </div>
                     </li>
 
-                    <li class="nav-item" ngbDropdown placement="bottom-right">
+                    <!-- <li class="nav-item" ngbDropdown placement="bottom-right">
                         <a class="nav-link" a [routerLink]="['/contact']" routerLinkActive="router-link-active" style="color:white"  role="button" (click)="collapse()">
                             Contact  
                         </a> 
-                    </li>
+                    </li> -->
 
                     <li class="nav-item" ngbDropdown>
                         <a class="nav-link" a [routerLink]="['/support']" routerLinkActive="router-link-active" style="color:white"  role="button" (click)="collapse()">
