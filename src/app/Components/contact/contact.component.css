@@ -4,6 +4,16 @@
     font-size: 13pt;
   }
 
+  hr{
+    border: 1px solid #422da3;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.container{
+    padding-top: 1.5%;
+}
+
   #btnSubmit{
     text-align: center;
   }

@@ -22,10 +22,11 @@ export class ContactComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern('^[a-z. A-Z]+$')]],
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%$!#+\-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$')]],
       phoneNum: ['', [Validators.required, Validators.minLength(10)]],
-      birthDate: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country: ['', Validators.required],
       reasonForContact: ['', Validators.required],
-      preferredApptTime: ['', Validators.required],
-      message: [''],
+      // message: [''],
     });
   }
 
