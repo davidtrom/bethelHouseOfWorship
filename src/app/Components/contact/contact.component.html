@@ -65,7 +65,7 @@
                         <div class="form-group col-md-6">
                             <label for="city">City:*</label>
                             <input type="text" formControlName="city" class="form-control" id="city" placeholder="City" [ngClass]="{'is-invalid': form.city.errors && (form.city.touched || form.city.dirty)}">
-                            <div *ngIf="form.city.errors && (form.citye.touched || form.city.dirty)" class="invalid-feedback">
+                            <div *ngIf="form.city.errors && (form.city.touched || form.city.dirty)" class="invalid-feedback">
                                 <div *ngIf='form.city.errors.required'>*City is Required</div>
                             </div>
                         </div>
@@ -80,19 +80,26 @@
                     </div>
 
                     <div class="form-row">
-
                         <div class="form-group col-md-6">
-                            <label for="reasonForContact">Reason for Contact:*</label>
-                            <input type="text" formControlName="reasonForContact" class="form-control" id="reasonForContact" placeholder="Reason for Contact" [ngClass]="{'is-invalid': form.reasonForContact.errors && (form.reasonForContact.touched || form.reasonForContact.dirty)}">
-                            <div *ngIf="form.reasonForContact.errors && (form.reasonForContact.touched || form.reasonForContact.dirty)" class="invalid-feedback">
-                                <div *ngIf='form.reasonForContact.errors.required'>*Reason For Contact is Required</div>
+                            <label for="country">Country:*</label>
+                            <input type="text" formControlName="country" class="form-control" id="country" placeholder="Country" [ngClass]="{'is-invalid': form.country.errors && (form.country.touched || form.country.dirty)}">
+                            <div *ngIf="form.country.errors && (form.country.touched || form.country.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.country.errors.required'>*Country is Required</div>
                             </div>
                         </div>
 
                         <div class="form-group col-md-6">
+                            <label for="message">Message:*</label>
+                            <input type="text" formControlName="message" class="form-control" id="message" placeholder="Message" [ngClass]="{'is-invalid': form.message.errors && (form.message.touched || form.message.dirty)}">
+                            <div *ngIf="form.message.errors && (form.message.touched || form.message.dirty)" class="invalid-feedback">
+                                <div *ngIf='form.message.errors.required'>*Message is Required</div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group col-md-6">
                             <label for="message">Message:</label>
                             <input type="text" formControlName="message" class="form-control" id="message" placeholder="Message">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
