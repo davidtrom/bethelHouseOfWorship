@@ -16,6 +16,7 @@ import { TestimonialsComponent } from './Components/testimonials/testimonials.co
 import { SupportComponent } from './Components/support/support.component';
 import { PrayerRequestComponent } from './Components/prayer-request/prayer-request.component';
 import { AddTestimonialComponent } from './Components/add-testimonial/add-testimonial.component';
+import { ViewPrayerRequestsComponent } from './Components/view-prayer-requests/view-prayer-requests.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddTestimonialComponent } from './Components/add-testimonial/add-testim
     TestimonialsComponent,
     SupportComponent,
     PrayerRequestComponent,
-    AddTestimonialComponent
+    AddTestimonialComponent,
+    ViewPrayerRequestsComponent
   ],
   imports: [
     BrowserModule,
