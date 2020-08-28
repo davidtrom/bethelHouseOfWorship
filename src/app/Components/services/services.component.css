@@ -21,7 +21,7 @@ hr{
     height: auto;
 }
 
-#prayerText{
+#prayerText, #previousServices{
     padding-left: 5%;
     padding-top: 3%;
     padding-bottom: 1%;
@@ -50,6 +50,12 @@ h3{
     padding-top: 1%;
 }
 
-/* #whatWeDo{
+#headphones{
     padding-top: 2%;
-} */
+    text-align: center;
+}
+
+#link{
+    font-size: larger;
+    text-align: center;
+}

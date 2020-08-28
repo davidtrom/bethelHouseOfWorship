@@ -72,11 +72,20 @@
                         </a> 
                     </li> -->
 
-                    <li class="nav-item" ngbDropdown>
+                    <li class="nav-item dropdown" ngbDropdown id="infoDropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: white" aria-haspopup="true" aria-expanded="false">Support</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" a [routerLink]="['/support']" (click)="collapse()">Donations & Apparel</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" a [routerLink]="['/view-prayer-requests']"(click)="collapse()">Pray for Someone</a>
+                        </div>
+                    </li>
+
+                    <!-- <li class="nav-item" ngbDropdown>
                         <a class="nav-link" a [routerLink]="['/support']" routerLinkActive="router-link-active" style="color:white"  role="button" (click)="collapse()">
                             Support  
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
