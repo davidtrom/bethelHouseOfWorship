@@ -8,6 +8,7 @@ import { TestimonialsComponent } from './Components/testimonials/testimonials.co
 import { SupportComponent } from './Components/support/support.component';
 import { PrayerRequestComponent } from './Components/prayer-request/prayer-request.component';
 import { ViewPrayerRequestsComponent } from './Components/view-prayer-requests/view-prayer-requests.component';
+import { AddTestimonialComponent } from './Components/add-testimonial/add-testimonial.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'support', component: SupportComponent},
   { path: 'prayer-request', component: PrayerRequestComponent},
   { path: 'view-prayer-requests', component: ViewPrayerRequestsComponent},
+  { path: 'add-testimonial', component: AddTestimonialComponent},
 
   // if no route, redirect to home
   { path: '**', redirectTo: '' }
