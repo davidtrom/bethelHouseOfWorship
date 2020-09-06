@@ -1,0 +1,37 @@
+.flex-container {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 13pt;
+  }
+
+  hr{
+    border: 1px solid #422da3;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.container{
+    padding-top: 1.5%;
+}
+
+  #btnSubmit{
+    text-align: center;
+  }
+
+  h1{
+      text-align: center;
+      color:#422da3;
+  }
+
+  #headingDetails{
+    text-align: center;
+    padding-bottom: 2%;
+    color:#422da3;
+    font-weight: bold;
+  }
+
+  .formNotValid{
+    color: red;
+    text-align: center;
+    padding-bottom: 2%;
+  }
