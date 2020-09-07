@@ -44,7 +44,7 @@ export class ContactComponent implements OnInit {
         this.contactForm.controls.city.value,
         this.contactForm.controls.state.value,
         this.contactForm.controls.country.value,
-        this.contactForm.controls.reasonForContact.value,
+        this.contactForm.controls.message.value,
         );
 
         this.contactService.createContact(contact).subscribe(
