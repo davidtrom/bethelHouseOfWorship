@@ -6,7 +6,7 @@ import { MissionComponent } from './Components/mission/mission.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { TestimonialsComponent } from './Components/testimonials/testimonials.component';
 import { SupportComponent } from './Components/support/support.component';
-import { PrayerRequestComponent } from './Components/prayer-request/prayer-request.component';
+import { PrayerRequestComponent } from './Components/add-prayer-request/prayer-request.component';
 import { ViewPrayerRequestsComponent } from './Components/view-prayer-requests/view-prayer-requests.component';
 import { AddTestimonialComponent } from './Components/add-testimonial/add-testimonial.component';
 
