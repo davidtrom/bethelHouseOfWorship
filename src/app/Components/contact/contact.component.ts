@@ -26,7 +26,6 @@ export class ContactComponent implements OnInit {
       state: ['', Validators.required],
       country: ['', Validators.required],
       message: ['', Validators.required],
-      // message: [''],
     });
   }
 
