@@ -13,6 +13,7 @@ export class PrayerRequestServiceService {
   baseUrl=environment.baseUrl;
   prayerRequest: PrayerRequest;
   private addRequestUrl: string = this.baseUrl + "/add-request";
+  private getAllRequestsUrl: string = this.baseUrl + "/"
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -25,6 +26,18 @@ export class PrayerRequestServiceService {
       .pipe(tap(data => console.log("sending prayer request")), 
       catchError(this.handleError<PrayerRequest>('error sending request', null)))
   }
+
+  getAllPrayerRequests(): Observable<PrayerRequest[]>{
+    return this.http.get<PrayerRequest[]>(this.getAllRequestsUrl, this.httpOptions)
+      .pipe(tap(data => console.log("getting all prayer requests")),
+      catchError(this.handleError<PrayerRequest[]>('error getting prayer requests', null)))
+  }
+
+  // deletePrayerRequest(prayerRequest: PrayerRequest): Observable<PrayerRequest>{
+  //   return this.http.post<PrayerRequest>(this.addRequestUrl, prayerRequest, this.httpOptions)
+  //     .pipe(tap(data => console.log("sending prayer request")), 
+  //     catchError(this.handleError<PrayerRequest>('error sending request', null)))
+  // }
 
 
   /**
