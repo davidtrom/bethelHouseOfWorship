@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
       city: ['', Validators.required],
       state: ['', Validators.required],
       country: ['', Validators.required],
-      message: ['', Validators.required],
+      testimony: ['', Validators.required],
     });
   }
 

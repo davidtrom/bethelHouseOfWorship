@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Testimonial } from 'src/app/Models/testimonial.model';
+import { TestimonialService } from 'src/app/Services/testimonial.service';
 
 @Component({
   selector: 'app-add-testimonial',
@@ -7,9 +10,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTestimonialComponent implements OnInit {
 
-  constructor() { }
+  testimonialForm: FormGroup;
+  formNotValid: boolean;
+
+  constructor(private fb:FormBuilder, private testimonialService: TestimonialService) { }
 
   ngOnInit() {
+    this.testimonialForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-z. A-Z]+$')]],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country: ['', Validators.required],
+      testimony: ['', Validators.required]
+    });
   }
+
+  get form() { return this.testimonialForm.controls; }
+
+  onSubmit(): void{       
+    console.log("inside onSubmit")
+    if(this.testimonialForm.valid){
+      let testimonial: Testimonial = new Testimonial(
+        null,
+        this.testimonialForm.controls.firstName.value,
+        this.testimonialForm.controls.lastName.value,
+        this.testimonialForm.controls.city.value,
+        this.testimonialForm.controls.state.value,
+        this.testimonialForm.controls.country.value,
+        this.testimonialForm.controls.testimony.value,
+        null
+        );
+
+        // this.contactService.createContact(contact).subscribe(
+        //   data => {
+        //     console.log("was email sent? ", data);     
+        //   if(data){
+        //     alert('Your email has been sent');
+        //   }
+        //   else {
+        //     alert('There was an error, your email has NOT been sent ' + '\n'
+        //     + 'Please try again.');
+        //   }
+        //   this.prayerRequestForm.reset();
+        // }
+        // );
+    }
+    else{
+      this.testimonialForm.markAllAsTouched();
+      this.formNotValid = true;
+    }
+  } 
+
+
 
 }
