@@ -12,8 +12,8 @@ export class PrayerRequestServiceService {
 
   baseUrl=environment.baseUrl;
   prayerRequest: PrayerRequest;
-  private addRequestUrl: string = this.baseUrl + "/add-request";
-  private getAllRequestsUrl: string = this.baseUrl + "/"
+  private addRequestUrl: string = this.baseUrl + "/prayer-request/create";
+  private getAllRequestsUrl: string = this.baseUrl + "/view-requests";
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -29,7 +29,7 @@ export class PrayerRequestServiceService {
 
   getAllPrayerRequests(): Observable<PrayerRequest[]>{
     return this.http.get<PrayerRequest[]>(this.getAllRequestsUrl, this.httpOptions)
-      .pipe(tap(data => console.log("getting all prayer requests")),
+      .pipe(tap(data => console.log("fetching requests")),
       catchError(this.handleError<PrayerRequest[]>('error getting prayer requests', null)))
   }
 
