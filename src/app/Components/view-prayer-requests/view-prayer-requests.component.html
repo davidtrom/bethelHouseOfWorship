@@ -7,8 +7,47 @@
 
     <hr>
 
-    <div class="viewPrayerRequestsText">
+    <!-- <div class="viewPrayerRequestsText">
         Coming soon!  Please pardon our appearance as we continue construction.
-    </div>
+    </div> -->
+
+    <div *ngIf="noRequests; else showRequests">
+        <div class="flex-container">
+            <div class="container">
+                <h1 class="title">Coming Soon!</h1>
+                <div class="viewPrayerRequestsText">At this time there are no prayer requests listed.  Please check back again soon
+                    for prayer requests that may have been added.  Thank you for praying for those in need.</div>
+            </div>
+        </div>
+    </div> 
+    
+    <ng-template #showRequests>
+        <div class="flex-container">
+            <div class="title">
+                <h1>Prayer Requests:</h1>
+            </div>
+            <div class="card w-75 p-3 mx-auto" *ngFor="let prayerRequest of prayerRequests;">
+                <div class="card-header">
+                    <div class="headerTitle">
+                        <strong>Requestor Name: {{prayerRequest.firstName}}</strong>
+                    </div>
+                </div>
+                <div class="card-body">
+                        <div class= "descriptionTitle">
+                            <u>Description:</u>
+                        </div>
+                        <div class= "blogDescription">
+                            {{blogPost.description}} 
+                        </div>
+                </div>
+        
+                <div class="card-footer">
+                    <div class="link">
+                        <u>Link:</u> &nbsp;{{blogPost.link}}
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </ng-template>
 
 </div>  

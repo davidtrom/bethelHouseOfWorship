@@ -13,7 +13,7 @@ export class PrayerRequestServiceService {
   baseUrl=environment.baseUrl;
   prayerRequest: PrayerRequest;
   private addRequestUrl: string = this.baseUrl + "/prayer-request/create";
-  private getAllRequestsUrl: string = this.baseUrl + "/view-requests";
+  private getAllRequestsUrl: string = this.baseUrl + "/prayer-requests/view-requests";
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})

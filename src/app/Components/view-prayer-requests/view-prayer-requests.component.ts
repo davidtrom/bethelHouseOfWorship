@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-service.service';
 
 @Component({
   selector: 'app-view-prayer-requests',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPrayerRequestsComponent implements OnInit {
 
-  constructor() { }
+  noRequests: boolean;
+  prayerRequests: any[];
+
+  constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
   ngOnInit() {
+    this.getPrayerRequests();
+  }
+
+  getPrayerRequests(){
+    this.prayerRequestService.getAllPrayerRequests().subscribe(data => {
+      console.log("fetching prayer requests");
+      this.prayerRequests = data;
+      if(this.prayerRequests.length === 0){
+        this.noRequests = true;
+      }
+      else {this.noRequests = false;}
+    });
   }
 
 }
