@@ -43,19 +43,19 @@ export class PrayerRequestComponent implements OnInit {
         null
         );
 
-        // this.contactService.createContact(contact).subscribe(
-        //   data => {
-        //     console.log("was email sent? ", data);     
-        //   if(data){
-        //     alert('Your email has been sent');
-        //   }
-        //   else {
-        //     alert('There was an error, your email has NOT been sent ' + '\n'
-        //     + 'Please try again.');
-        //   }
-        //   this.prayerRequestForm.reset();
-        // }
-        // );
+        this.prayerRequestService.addPrayerRequest(prayerRequest).subscribe(
+          data => {
+            console.log("sending request", data);     
+          if(data !== null){
+            alert('Your request has been sent');
+          }
+          else {
+            alert('There was an error, your request has NOT been sent ' + '\n'
+            + 'Please try again.');
+          }
+          this.prayerRequestForm.reset();
+        }
+        );
     }
     else{
       this.prayerRequestForm.markAllAsTouched();

@@ -12,7 +12,7 @@ export class PrayerRequestServiceService {
 
   baseUrl=environment.baseUrl;
   prayerRequest: PrayerRequest;
-  private addRequestUrl: string = this.baseUrl + "/prayer-request/create";
+  private addRequestUrl: string = this.baseUrl + "/prayer-requests/create";
   private getAllRequestsUrl: string = this.baseUrl + "/prayer-requests/view-requests";
   
   httpOptions = {
@@ -23,7 +23,7 @@ export class PrayerRequestServiceService {
 
   addPrayerRequest(prayerRequest: PrayerRequest): Observable<PrayerRequest>{
     return this.http.post<PrayerRequest>(this.addRequestUrl, prayerRequest, this.httpOptions)
-      .pipe(tap(data => console.log("sending prayer request")), 
+      .pipe(tap(data => console.log("sending prayer request", data)), 
       catchError(this.handleError<PrayerRequest>('error sending request', null)))
   }
 

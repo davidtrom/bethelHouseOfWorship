@@ -9,7 +9,7 @@ import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-ser
 export class ViewPrayerRequestsComponent implements OnInit {
 
   noRequests: boolean;
-  prayerRequests: any[];
+  userPrayerRequests: any[];
 
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
@@ -20,8 +20,8 @@ export class ViewPrayerRequestsComponent implements OnInit {
   getPrayerRequests(){
     this.prayerRequestService.getAllPrayerRequests().subscribe(data => {
       console.log("fetching prayer requests");
-      this.prayerRequests = data;
-      if(this.prayerRequests.length === 0){
+      this.userPrayerRequests = data;
+      if(this.userPrayerRequests.length === 0){
         this.noRequests = true;
       }
       else {this.noRequests = false;}
