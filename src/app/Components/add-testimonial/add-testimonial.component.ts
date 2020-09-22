@@ -42,19 +42,19 @@ export class AddTestimonialComponent implements OnInit {
         null
         );
 
-        // this.contactService.createContact(contact).subscribe(
-        //   data => {
-        //     console.log("was email sent? ", data);     
-        //   if(data){
-        //     alert('Your email has been sent');
-        //   }
-        //   else {
-        //     alert('There was an error, your email has NOT been sent ' + '\n'
-        //     + 'Please try again.');
-        //   }
-        //   this.prayerRequestForm.reset();
-        // }
-        // );
+        this.testimonialService.addTestimonial(testimonial).subscribe(
+          data => {
+            console.log("sending testimonial ", data);     
+          if(data !== null){
+            alert('Your email has been sent');
+          }
+          else {
+            alert('There was an error, your email has NOT been sent ' + '\n'
+            + 'Please try again.');
+          }
+          this.testimonialForm.reset();
+        }
+        );
     }
     else{
       this.testimonialForm.markAllAsTouched();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestimonialService } from 'src/app/Services/testimonial.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestimonialsComponent implements OnInit {
 
-  constructor() { }
+  userTestimonials: any[];
+  noTestimonials: boolean;
+
+  constructor(private testimonialService: TestimonialService) { }
 
   ngOnInit() {
+    this.getTestimonials();
+  }
+
+  getTestimonials(){
+    this.testimonialService.getAllTestimonials().subscribe(data => {
+      console.log("fetching testimonials");
+      this.userTestimonials = data;
+      if(this.userTestimonials.length === 0){
+        this.noTestimonials = true;
+      }
+      else {this.noTestimonials = false;}
+    });
   }
 
 }
