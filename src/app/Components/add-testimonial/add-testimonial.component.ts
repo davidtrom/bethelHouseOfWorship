@@ -46,10 +46,10 @@ export class AddTestimonialComponent implements OnInit {
           data => {
             console.log("sending testimonial ", data);     
           if(data !== null){
-            alert('Your email has been sent');
+            alert('Your testimony has been sent');
           }
           else {
-            alert('There was an error, your email has NOT been sent ' + '\n'
+            alert('There was an error, your testimony has NOT been sent ' + '\n'
             + 'Please try again.');
           }
           this.testimonialForm.reset();

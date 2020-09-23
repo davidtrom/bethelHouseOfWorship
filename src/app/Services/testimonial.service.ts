@@ -13,8 +13,8 @@ export class TestimonialService {
 
   baseUrl=environment.baseUrl;
   testimonial: Testimonial;
-  private addTestimonialUrl: string = this.baseUrl + "/add-testimonial";
-  private getAllRequestsUrl: string = this.baseUrl + "/prayer-requests/view-requests"
+  private addTestimonialUrl: string = this.baseUrl + "/testimonials/create";
+  private getAllRequestsUrl: string = this.baseUrl + "/testimonials/view-all"
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -30,7 +30,7 @@ export class TestimonialService {
 
   getAllTestimonials(): Observable<Testimonial[]>{
     return this.http.get<Testimonial[]>(this.getAllRequestsUrl, this.httpOptions)
-      .pipe(tap(data => console.log("fetching requests")),
+      .pipe(tap(data => console.log("fetching requested testimonials")),
       catchError(this.handleError<Testimonial[]>('error getting testimonials', null)))
   }
 

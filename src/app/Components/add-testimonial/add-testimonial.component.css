@@ -29,3 +29,9 @@ hr{
     text-align: center;
     padding-top: 2%;
 }
+
+.formNotValid{
+    color: red;
+    text-align: center;
+    padding-bottom: 2%;
+  }
