@@ -11,6 +11,7 @@ import { catchError, tap } from 'rxjs/operators';
 export class ContactService {
   
   baseUrl = environment.baseUrl;
+  private sendEmail: string = this.baseUrl + "/contact/send-email";
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
   }
@@ -18,7 +19,7 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   createContact(contactToCreate: Contact): Observable<Boolean>{
-    return this.http.post<Boolean>(this.baseUrl+"/contact", contactToCreate, this.httpOptions)
+    return this.http.post<Boolean>(this.sendEmail, contactToCreate, this.httpOptions)
       .pipe(tap(data => {console.log("sending contact email"), 
       catchError(this.handleError<Boolean>('error sending email', null))}))
   }
