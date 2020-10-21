@@ -14,7 +14,7 @@ export class TestimonialService {
   baseUrl=environment.baseUrl;
   testimonial: Testimonial;
   private addTestimonialUrl: string = this.baseUrl + "/testimonials/create";
-  private getAllRequestsUrl: string = this.baseUrl + "/testimonials/view-all"
+  private getAllRequestsUrl: string = this.baseUrl + "/testimonials/view-approved"
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})

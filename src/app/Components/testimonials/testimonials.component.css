@@ -2,6 +2,7 @@
     font-size: 13pt;
     padding-top: 2%;
     padding-bottom: 2%;
+    justify-content: space-between;
 }
 
 .title{
@@ -28,4 +29,8 @@ hr{
     padding-bottom: 3%; */
     text-align: center;
     padding-top: 2%;
+}
+
+.card{
+    border-color: #422da3;
 }
