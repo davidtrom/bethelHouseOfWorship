@@ -29,3 +29,7 @@ hr{
     text-align: center;
     padding-top: 2%;
 }
+
+.card{
+    border-color: #422da3;
+}
