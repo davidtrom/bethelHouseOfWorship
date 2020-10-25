@@ -1,0 +1,12 @@
+.flex-container{
+    font-size: 13pt;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    justify-content: space-between;
+}
+
+.title{
+    color: #422da3;
+    text-align: center;
+    padding-bottom: 1.5%;
+}

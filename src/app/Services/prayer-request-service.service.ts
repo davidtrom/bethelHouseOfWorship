@@ -13,7 +13,9 @@ export class PrayerRequestServiceService {
   baseUrl=environment.baseUrl;
   prayerRequest: PrayerRequest;
   private addRequestUrl: string = this.baseUrl + "/prayer-requests/create";
-  private getAllRequestsUrl: string = this.baseUrl + "/prayer-requests/view-approved";
+  private getApprovedRequestsUrl: string = this.baseUrl + "/prayer-requests/view-approved";
+  private getPendingRequestsUrl: string = this.baseUrl + "/prayer-requests/view-pending";
+  private getDeniedRequestsUrl: string = this.baseUrl + "/prayer-requests/view-denied";
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -27,10 +29,22 @@ export class PrayerRequestServiceService {
       catchError(this.handleError<PrayerRequest>('error sending request', null)))
   }
 
-  getAllPrayerRequests(): Observable<PrayerRequest[]>{
-    return this.http.get<PrayerRequest[]>(this.getAllRequestsUrl, this.httpOptions)
+  getApprovedPrayerRequests(): Observable<PrayerRequest[]>{
+    return this.http.get<PrayerRequest[]>(this.getApprovedRequestsUrl, this.httpOptions)
       .pipe(tap(data => console.log("fetching requests")),
-      catchError(this.handleError<PrayerRequest[]>('error getting prayer requests', null)))
+      catchError(this.handleError<PrayerRequest[]>('error getting approved prayer requests', null)))
+  }
+
+  getPendingPrayerRequests(): Observable<PrayerRequest[]>{
+    return this.http.get<PrayerRequest[]>(this.getPendingRequestsUrl, this.httpOptions)
+      .pipe(tap(data => console.log("fetching requests")),
+      catchError(this.handleError<PrayerRequest[]>('error getting pending prayer requests', null)))
+  }
+
+  getDeniedPrayerRequests(): Observable<PrayerRequest[]>{
+    return this.http.get<PrayerRequest[]>(this.getDeniedRequestsUrl, this.httpOptions)
+      .pipe(tap(data => console.log("fetching requests")),
+      catchError(this.handleError<PrayerRequest[]>('error getting denied prayer requests', null)))
   }
 
   // deletePrayerRequest(prayerRequest: PrayerRequest): Observable<PrayerRequest>{

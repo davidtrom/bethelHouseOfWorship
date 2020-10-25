@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'pastor-dashboard', component: AdminDashboardComponent},
   { path: 'pastor-login', component: LoginComponent},
   { path: 'prayer-request-review', component:PrayerRequestReviewComponent},
-  { path: 'testimonial-reivew', component:TestimonialReviewComponent},
+  { path: 'testimonial-review', component:TestimonialReviewComponent},
   
 
 

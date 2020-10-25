@@ -1,1 +1,25 @@
 <p>prayer-request-review works!</p>
+
+<div class="flex-container">
+    <div class="title">
+        <h1>Pastor Dashboard - View Prayer Requests</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" id="pendingBtn">
+            <button type="button" class="btn btn-warning" (click)="viewPendingRequests()">
+                View Pending Requests
+            </button>
+        </div>
+        <div class="col-md-4" id="approvedBtn">
+            <button type="button" class="btn btn-success" (click)="viewApprovedRequests()">
+                View Approved Requests
+            </button>
+        </div>
+        <div class="col-md-4" id="deniedBtn">
+            <button type="button" class="btn btn-danger" (click)="viewDeniedRequests()">
+                View Denied Requests
+            </button>
+        </div>
+    </div>
+</div>
