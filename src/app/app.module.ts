@@ -19,6 +19,9 @@ import { AddTestimonialComponent } from './Components/add-testimonial/add-testim
 import { ViewPrayerRequestsComponent } from './Components/view-prayer-requests/view-prayer-requests.component';
 import { LoginComponent } from './Components/login/login.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { PrayerRequestReviewComponent } from './Components/prayer-request-review/prayer-request-review.component';
+import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
+
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
     AddTestimonialComponent,
     ViewPrayerRequestsComponent,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    PrayerRequestReviewComponent,
+    TestimonialReviewComponent,
   ],
   imports: [
     BrowserModule,

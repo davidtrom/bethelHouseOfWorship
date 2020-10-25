@@ -9,6 +9,10 @@ import { SupportComponent } from './Components/support/support.component';
 import { PrayerRequestComponent } from './Components/add-prayer-request/prayer-request.component';
 import { ViewPrayerRequestsComponent } from './Components/view-prayer-requests/view-prayer-requests.component';
 import { AddTestimonialComponent } from './Components/add-testimonial/add-testimonial.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { LoginComponent } from './Components/login/login.component';
+import { PrayerRequestReviewComponent } from './Components/prayer-request-review/prayer-request-review.component';
+import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
 
 
 const routes: Routes = [
@@ -21,6 +25,12 @@ const routes: Routes = [
   { path: 'prayer-request', component: PrayerRequestComponent},
   { path: 'view-prayer-requests', component: ViewPrayerRequestsComponent},
   { path: 'add-testimonial', component: AddTestimonialComponent},
+  { path: 'pastor-dashboard', component: AdminDashboardComponent},
+  { path: 'pastor-login', component: LoginComponent},
+  { path: 'prayer-request-review', component:PrayerRequestReviewComponent},
+  { path: 'testimonial-reivew', component:TestimonialReviewComponent},
+  
+
 
   // if no route, redirect to home
   { path: '**', redirectTo: '' }
