@@ -10,3 +10,21 @@
     text-align: center;
     padding-bottom: 1.5%;
 }
+
+#approvedBtn{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom:2%;
+}
+
+#pendingBtn{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom:2%;
+}
+
+#deniedBtn{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom:2%;
+}

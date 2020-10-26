@@ -10,6 +10,7 @@ export class PrayerRequestReviewComponent implements OnInit {
 
   noRequests: boolean;
   userPrayerRequests: any[];
+  status: string;
 
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
@@ -26,6 +27,7 @@ export class PrayerRequestReviewComponent implements OnInit {
       }
       else {this.noRequests = false;}
     });
+    this.status = "Pending";
   }
   
   getApprovedRequests(){
@@ -37,6 +39,7 @@ export class PrayerRequestReviewComponent implements OnInit {
       }
       else {this.noRequests = false;}
     });
+    this.status = "Approved";
   }
   
   getDeniedRequests(){
@@ -48,6 +51,7 @@ export class PrayerRequestReviewComponent implements OnInit {
       }
       else {this.noRequests = false;}
     });
+    this.status = "Denied"
   }
 
 }
