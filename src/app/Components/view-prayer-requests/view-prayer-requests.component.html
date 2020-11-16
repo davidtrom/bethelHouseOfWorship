@@ -26,11 +26,11 @@
             <div class="title">
                 <h1>Prayer Requests:</h1>
             </div>
-            <div *ngFor="let userPrayerRequest of userPrayerRequests;">
+            <div *ngFor="let approvedPrayerRequest of approvedPrayerRequests;">
                 <div class="card w-75 p-3 mx-auto" >
                     <div class="card-header">
                         <div class="headerTitle">
-                            <strong>Date Posted:</strong> {{userPrayerRequest.creationDate | date:'shortDate'}}
+                            <strong>Date Posted:</strong> {{approvedPrayerRequest.creationDate | date:'shortDate'}}
                         </div>
                     </div>
                     <div class="card-body">
@@ -38,13 +38,13 @@
                                 <u><strong>Request:</strong></u>
                             </div>
                             <div class= "requestText">
-                                {{userPrayerRequest.prayerRequest}} 
+                                {{approvedPrayerRequest.prayerRequest}} 
                             </div>
                     </div>
                     <div class="card-footer">
-                        <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
+                        <strong>Requestor: </strong>{{approvedPrayerRequest.firstName}}
                         <br> 
-                        <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
+                        <strong>Location: </strong>{{approvedPrayerRequest.locationCity}}, {{approvedPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
                     </div>
                 </div> 
                 <br>
