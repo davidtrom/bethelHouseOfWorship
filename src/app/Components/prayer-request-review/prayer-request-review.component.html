@@ -4,23 +4,49 @@
         <h1>Pastor Dashboard - View Prayer Requests</h1>
     </div>
 
-    <div class="row">
-        <div class="col-md-4" id="pendingBtn">
-            <button type="button" class="btn btn-warning" (click)="getPendingRequests()">
-                View Pending Requests
-            </button>
-        </div>
-        <div class="col-md-4" id="approvedBtn">
+
+    
+    <div *ngIf="showingPending" class="row">
+        <div class="col-md-6" id="approvedBtn">
             <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
                 View Approved Requests
             </button>
         </div>
-        <div class="col-md-4" id="deniedBtn">
+        <div class="col-md-6" id="deniedBtn">
             <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
                 View Denied Requests
             </button>
         </div>
     </div>
+
+    <div *ngIf="showingApproved" class="row">
+        <div class="col-md-6" id="pendingBtn">
+            <button type="button" class="btn btn-warning" (click)="getPendingRequests()">
+                View Pending Requests
+            </button>
+        </div>
+        <div class="col-md-6" id="deniedBtn">
+            <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
+                View Denied Requests
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="showingDenied" class="row">
+        <div class="col-md-6" id="pendingBtn">
+            <button type="button" class="btn btn-warning" (click)="getPendingRequests()">
+                View Pending Requests
+            </button>
+        </div>
+        <div class="col-md-6" id="approvedBtn">
+            <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
+                View Approved Requests
+            </button>
+        </div>
+    </div>
+
+
+
 
     <div *ngIf="noRequests; else showRequests">
         <div class="flex-container">
@@ -34,61 +60,39 @@
 
     <ng-template #showRequests>
         <div class="flex-container">
-
-                <!-- <div class="container-fluid">
-                    <div class="title">
-                    <h1>Prayer Requests:</h1>
+            <div *ngFor="let userPrayerRequest of userPrayerRequests;">
+                <div class="card w-75 p-3 mx-auto" >
+                    <div class="card-header">
+                        <div class="headerTitle">
+                            <strong>Date Posted:</strong> {{userPrayerRequest.creationDate | date:'shortDate'}}
+                        </div>
                     </div>
-                    <table class="table table-dark table-hover table-striped">
-                    <thead class="thead-light">
-                        <tr>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>Location</th>
-                        <th>Details</th>
-                        <th>Status</th>
-                        <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let userPrayerRequest of userPrayerRequests;">
-                            <td>{{ userPrayerRequest.datePosted | date: 'shortDate'}}</td>
-                            <td>{{ userPrayerRequest.typeOfRequest }}</td>
-                            <td>{{ userPrayerRequest.recipient.location}}</td>
-                            <td>{{ userPrayerRequest.requestDescription }}</td>
-                            <td>{{ userPrayerRequest.requestStatus}}</td>    
-                            <td><a [routerLink]="['/request-detail', helpRequest.id]" type="button" class="btn btn-warning">View Details</a></td>       
-                        </tr>
-                    </tbody>
-                    </table>
-                </div> -->
-                <div *ngFor="let userPrayerRequest of userPrayerRequests;">
-                    <div class="card w-75 p-3 mx-auto" >
-                        <div class="card-header">
-                            <div class="headerTitle">
-                                
-                                    <strong>Date Posted:</strong> {{userPrayerRequest.creationDate | date:'shortDate'}}
-                                
+                    <div class="card-body">
+                            <div class= "requestTitle">
+                                <u><strong>Request:</strong></u>
+                            </div>
+                            <div class= "requestText">
+                                {{userPrayerRequest.prayerRequest}} 
+                            </div>
+                    </div>
+                    <div class="card-footer">
+                        <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
+                        <br> 
+                        <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
+                        <strong>Status: </strong>{{userPrayerRequest.status}}
+                        <div class="buttons">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                                <div class= "requestTitle">
-                                    <u><strong>Request:</strong></u>
-                                </div>
-                                <div class= "requestText">
-                                    {{userPrayerRequest.prayerRequest}} 
-                                </div>
-                        </div>
-                        <div class="card-footer">
-                            <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
-                            <br> 
-                            <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
-                        </div>
-                    </div> 
-                    <br>
-                </div>    
-         </div>
-    
+                    </div>
+                </div>
+                <br>    
+            </div>  
+        </div>
+        <br>  
     </ng-template>
 
 </div>

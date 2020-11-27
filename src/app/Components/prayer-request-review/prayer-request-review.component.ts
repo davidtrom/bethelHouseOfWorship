@@ -9,6 +9,9 @@ import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-ser
 export class PrayerRequestReviewComponent implements OnInit {
 
   noRequests: boolean;
+  showingPending: boolean=true;
+  showingApproved: boolean=false;
+  showingDenied: boolean=false;
   userPrayerRequests: any[];
   status: string;
 
@@ -28,6 +31,9 @@ export class PrayerRequestReviewComponent implements OnInit {
       else {this.noRequests = false;}
     });
     this.status = "Pending";
+    this.showingPending = true;
+    this.showingApproved = false;
+    this.showingDenied = false;
   }
   
   getApprovedRequests(){
@@ -40,6 +46,9 @@ export class PrayerRequestReviewComponent implements OnInit {
       else {this.noRequests = false;}
     });
     this.status = "Approved";
+    this.showingPending = false;
+    this.showingApproved = true;
+    this.showingDenied = false;
   }
   
   getDeniedRequests(){
@@ -51,7 +60,10 @@ export class PrayerRequestReviewComponent implements OnInit {
       }
       else {this.noRequests = false;}
     });
-    this.status = "Denied"
+    this.status = "Denied";
+    this.showingPending = false;
+    this.showingApproved = false;
+    this.showingDenied = true;
   }
 
 }
