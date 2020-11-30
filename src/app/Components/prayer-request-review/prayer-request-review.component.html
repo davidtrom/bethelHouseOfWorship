@@ -2,21 +2,23 @@
 <div class="flex-container">
     <div class="title">
         <h1>Pastor Dashboard - View Prayer Requests</h1>
+        <h3>Currently Viewing {{this.status}} Requests</h3>
     </div>
 
 
     
     <div *ngIf="showingPending" class="row">
-        <div class="col-md-6" id="approvedBtn">
+        <div class="col-md-4" id="approvedBtn">
             <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
-                View Approved Requests
+                View All Approved Requests
             </button>
         </div>
-        <div class="col-md-6" id="deniedBtn">
+        <div class="col-md-4" id="deniedBtn">
             <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
-                View Denied Requests
+                View All Denied Requests
             </button>
         </div>
+        <div class="col-md-4"></div>
     </div>
 
     <div *ngIf="showingApproved" class="row">
@@ -40,12 +42,10 @@
         </div>
         <div class="col-md-6" id="approvedBtn">
             <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
-                View Approved Requests
+                View All Approved Requests
             </button>
         </div>
     </div>
-
-
 
 
     <div *ngIf="noRequests; else showRequests">
@@ -79,13 +79,19 @@
                         <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
                         <br> 
                         <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
-                        <strong>Status: </strong>{{userPrayerRequest.status}}
-                        <div class="buttons">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    
-                                </div>
-                            </div>
+                        <br>
+                        <strong>Status: </strong>{{userPrayerRequest.requestStatus}}
+                    </div>
+                    <div *ngIf="showingPending" class="row">
+                        <div class="col-md-3" id="approvedBtn">
+                            <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
+                                Approve Request
+                            </button>
+                        </div>
+                        <div class="col-md-3" id="deniedBtn">
+                            <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
+                                Deny Request
+                            </button>
                         </div>
                     </div>
                 </div>
