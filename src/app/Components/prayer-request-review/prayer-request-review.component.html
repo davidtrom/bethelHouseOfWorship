@@ -8,12 +8,12 @@
 
     
     <div *ngIf="showingPending" class="row">
-        <div class="col-md-4" id="approvedBtn">
+        <div class="col-md-6" id="approvedBtn">
             <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
                 View All Approved Requests
             </button>
         </div>
-        <div class="col-md-4" id="deniedBtn">
+        <div class="col-md-6" id="deniedBtn">
             <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
                 View All Denied Requests
             </button>
@@ -83,14 +83,38 @@
                         <strong>Status: </strong>{{userPrayerRequest.requestStatus}}
                     </div>
                     <div *ngIf="showingPending" class="row">
-                        <div class="col-md-3" id="approvedBtn">
-                            <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-success" (click)="approveRequest()">
                                 Approve Request
                             </button>
                         </div>
-                        <div class="col-md-3" id="deniedBtn">
-                            <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-danger" (click)="denyRequest()">
                                 Deny Request
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="showingApproved" class="row">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-warning" (click)="pendingRequest()">
+                                Mark Pending
+                            </button>
+                        </div>
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-danger" (click)="denyRequest()">
+                                Deny Request
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="showingDenied" class="row">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-success" (click)="approveRequest()">
+                                Approve Request
+                            </button>
+                        </div>
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-warning" (click)="pendingRequest()">
+                                Mark Pending
                             </button>
                         </div>
                     </div>

@@ -66,4 +66,10 @@ export class PrayerRequestReviewComponent implements OnInit {
     this.showingDenied = true;
   }
 
+  approveRequest(id: number){
+    this.prayerRequestService.approvePrayerRequest(id).subscribe(data => {console.log("approving prayer request")})
+    alert('Prayer Request has been approved');
+    location.reload();
+  }
+
 }

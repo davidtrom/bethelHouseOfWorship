@@ -47,6 +47,12 @@ export class PrayerRequestServiceService {
       catchError(this.handleError<PrayerRequest[]>('error getting denied prayer requests', null)))
   }
 
+  approvePrayerRequest(id: number): Observable<PrayerRequest>{
+    return this.http.put<PrayerRequest>(this.baseUrl+`/prayer-requests/${id}/approve-request`, this.httpOptions)
+    .pipe(tap(data => console.log("approving request")),
+    catchError(this.handleError<PrayerRequest>('error approving prayer request', null)));
+  }
+
   // deletePrayerRequest(prayerRequest: PrayerRequest): Observable<PrayerRequest>{
   //   return this.http.post<PrayerRequest>(this.addRequestUrl, prayerRequest, this.httpOptions)
   //     .pipe(tap(data => console.log("sending prayer request")), 
