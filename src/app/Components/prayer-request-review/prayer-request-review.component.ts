@@ -68,7 +68,19 @@ export class PrayerRequestReviewComponent implements OnInit {
 
   approveRequest(id: number){
     this.prayerRequestService.approvePrayerRequest(id).subscribe(data => {console.log("approving prayer request")})
-    alert('Prayer Request has been approved');
+    alert('Prayer Request has been Approved');
+    location.reload();
+  }
+
+  denyRequest(id: number){
+    this.prayerRequestService.denyPrayerRequest(id).subscribe(data => {console.log("denying prayer request")})
+    alert('Prayer Request has been Denied');
+    location.reload();
+  }
+
+  pendingRequest(id: number){
+    this.prayerRequestService.pendingPrayerRequest(id).subscribe(data => {console.log("pending prayer request")})
+    alert('Prayer Request has been returned to Pending');
     location.reload();
   }
 

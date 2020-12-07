@@ -84,36 +84,36 @@
                     </div>
                     <div *ngIf="showingPending" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-success" (click)="approveRequest()">
+                            <button type="button" class="btn btn-success" (click)="approveRequest(userPrayerRequest.id)">
                                 Approve Request
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-danger" (click)="denyRequest()">
+                            <button type="button" class="btn btn-danger" (click)="denyRequest(userPrayerRequest.id)">
                                 Deny Request
                             </button>
                         </div>
                     </div>
                     <div *ngIf="showingApproved" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-warning" (click)="pendingRequest()">
+                            <button type="button" class="btn btn-warning" (click)="pendingRequest(userPrayerRequest.id)">
                                 Mark Pending
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-danger" (click)="denyRequest()">
+                            <button type="button" class="btn btn-danger" (click)="denyRequest(userPrayerRequest.id)">
                                 Deny Request
                             </button>
                         </div>
                     </div>
                     <div *ngIf="showingDenied" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-success" (click)="approveRequest()">
+                            <button type="button" class="btn btn-success" (click)="approveRequest(userPrayerRequest.id)">
                                 Approve Request
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-warning" (click)="pendingRequest()">
+                            <button type="button" class="btn btn-warning" (click)="pendingRequest(userPrayerRequest.id)">
                                 Mark Pending
                             </button>
                         </div>
