@@ -10,12 +10,14 @@ import { tap, catchError } from 'rxjs/operators';
 })
 export class PrayerRequestServiceService {
 
-  baseUrl=environment.baseUrl;
+  baseUrl=environment.baseUrl + "/prayer-requests";
   prayerRequest: PrayerRequest;
-  private addRequestUrl: string = this.baseUrl + "/prayer-requests/create";
-  private getApprovedRequestsUrl: string = this.baseUrl + "/prayer-requests/view-approved";
-  private getPendingRequestsUrl: string = this.baseUrl + "/prayer-requests/view-pending";
-  private getDeniedRequestsUrl: string = this.baseUrl + "/prayer-requests/view-denied";
+  private addRequestUrl: string = this.baseUrl + "/create";
+  private getApprovedRequestsUrl: string = this.baseUrl + "/view-approved";
+  private getPendingRequestsUrl: string = this.baseUrl + "/view-pending";
+  private getDeniedRequestsUrl: string = this.baseUrl + "view-denied";
+  private approveAllRequestsUrl: string = this.baseUrl + "/prayer-requests/approve-all";
+  private cleanRequestsUrl: string = this.baseUrl + "/remove-outdated";
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -69,6 +71,18 @@ export class PrayerRequestServiceService {
     return this.http.post<PrayerRequest>(this.baseUrl + `/prayer-requests/${id}/delete-request`, this.httpOptions)
       .pipe(tap(data => console.log("deleting prayer request")), 
       catchError(this.handleError<PrayerRequest>('error deleting request', null)))
+  }
+
+  approveAllPrayerRequests():Observable<boolean>{
+    return this.http.put<boolean>(this.approveAllRequestsUrl, this.httpOptions)
+    .pipe(tap(data => console.log("approving all requests")),
+    catchError(this.handleError<boolean>('error approving all prayer requests', null)))
+  }
+
+  cleanRequests():Observable<boolean>{
+    return this.http.delete<boolean>(this.cleanRequestsUrl, this.httpOptions)
+    .pipe(tap(data => console.log("removing old prayer Requests")),
+    catchError(this.handleError<boolean>('error deleting old requests', null)))
   }
 
 

@@ -84,4 +84,28 @@ export class PrayerRequestReviewComponent implements OnInit {
     location.reload();
   }
 
+  approveAllRequests(){
+    this.prayerRequestService.approveAllPrayerRequests().subscribe(data => {console.log("approving all prayer requests");
+      if(data == true){
+        alert('All Prayer Requests have been approved');
+      }
+      else{
+      alert('There was an error approving all prayer requests');
+      }
+    })
+    location.reload();
+  }
+
+  cleanRequests(){
+    this.prayerRequestService.cleanRequests().subscribe(data => {console.log("deleting outdated prayer requests");
+      if(data == true){
+        alert('All Prayer Requests over 30 days have been deleted');
+      }
+      else{
+      alert('There was an error deleting all prayer requests');
+      }
+    })
+    location.reload();
+  }
+
 }

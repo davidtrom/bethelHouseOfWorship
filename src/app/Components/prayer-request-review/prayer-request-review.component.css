@@ -29,6 +29,10 @@
     padding-bottom:2%;
 }
 
+.approveAllBtn, .deleteAllBtn{
+    text-align: center;
+}
+
 .card{
     border-color: #422da3;
 }

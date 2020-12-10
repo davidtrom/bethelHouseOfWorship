@@ -7,30 +7,49 @@
 
 
     
-    <div *ngIf="showingPending" class="row">
-        <div class="col-md-6" id="approvedBtn">
-            <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
-                View All Approved Requests
-            </button>
+    <div *ngIf="showingPending">
+        <div class="row">
+            <div class="col-md-6" id="approvedBtn">
+                <button type="button" class="btn btn-success" (click)="getApprovedRequests()">
+                    View All Approved Requests
+                </button>
+            </div>
+            <div class="col-md-6" id="deniedBtn">
+                <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
+                    View All Denied Requests
+                </button>
+            </div>
         </div>
-        <div class="col-md-6" id="deniedBtn">
-            <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
-                View All Denied Requests
-            </button>
+        <div class="row approveAllBtn">
+            <div class="col">
+                <button type="button" class="btn btn-success" (click)="approveAllRequests()">
+                    Approve All
+                </button>
+            </div>
         </div>
-        <div class="col-md-4"></div>
     </div>
 
-    <div *ngIf="showingApproved" class="row">
-        <div class="col-md-6" id="pendingBtn">
-            <button type="button" class="btn btn-warning" (click)="getPendingRequests()">
-                View Pending Requests
-            </button>
+    <div *ngIf="showingApproved">
+        <div class="row">
+            <div class="col-md-6" id="pendingBtn">
+                <button type="button" class="btn btn-warning" (click)="getPendingRequests()">
+                    View Pending Requests
+                </button>
+            </div>
+            <div class="col-md-6" id="deniedBtn">
+                <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
+                    View Denied Requests
+                </button>
+            </div>
         </div>
-        <div class="col-md-6" id="deniedBtn">
-            <button type="button" class="btn btn-danger" (click)="getDeniedRequests()">
-                View Denied Requests
-            </button>
+        <div class="row deleteAllBtn">
+            <div class="col">
+                <button type="button" class="btn btn-danger" (click)="cleanRequests()">
+                    Delete Requests
+                </button>
+                <br>
+                <small><strong>*This will ONLY delete Prayer Requests posted over 30 days old*</strong></small>     
+            </div>
         </div>
     </div>
 
