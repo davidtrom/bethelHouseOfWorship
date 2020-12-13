@@ -18,7 +18,7 @@ export class PrayerRequestReviewComponent implements OnInit {
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
   ngOnInit() {
-    this.getPendingRequests()
+    this.getPendingRequests();
   }
 
   getPendingRequests(){
@@ -96,10 +96,10 @@ export class PrayerRequestReviewComponent implements OnInit {
     location.reload();
   }
 
-  cleanRequests(){
-    this.prayerRequestService.cleanRequests().subscribe(data => {console.log("deleting outdated prayer requests");
+  deleteDeniedRequests(){
+    this.prayerRequestService.deleteDeniedRequests().subscribe(data => {console.log("deleting denied prayer requests");
       if(data == true){
-        alert('All Prayer Requests over 30 days have been deleted');
+        alert('ALL DENIED Prayer Requests have been deleted');
       }
       else{
       alert('There was an error deleting all prayer requests');

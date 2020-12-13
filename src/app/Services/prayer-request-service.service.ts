@@ -15,9 +15,11 @@ export class PrayerRequestServiceService {
   private addRequestUrl: string = this.baseUrl + "/create";
   private getApprovedRequestsUrl: string = this.baseUrl + "/view-approved";
   private getPendingRequestsUrl: string = this.baseUrl + "/view-pending";
-  private getDeniedRequestsUrl: string = this.baseUrl + "view-denied";
+  private getDeniedRequestsUrl: string = this.baseUrl + "/view-denied";
   private approveAllRequestsUrl: string = this.baseUrl + "/prayer-requests/approve-all";
+  private deleteDeniedRequestsUrl: string = this.baseUrl +"/delete-denied";
   private cleanRequestsUrl: string = this.baseUrl + "/remove-outdated";
+
   
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -79,11 +81,18 @@ export class PrayerRequestServiceService {
     catchError(this.handleError<boolean>('error approving all prayer requests', null)))
   }
 
+  deleteDeniedRequests():Observable<boolean>{
+    return this.http.delete<boolean>(this.deleteDeniedRequestsUrl, this.httpOptions)
+    .pipe(tap(data => console.log("deleting all denied prayer requests")),
+    catchError(this.handleError<boolean>('error deleting denied requests', null)))
+  }
+
   cleanRequests():Observable<boolean>{
     return this.http.delete<boolean>(this.cleanRequestsUrl, this.httpOptions)
-    .pipe(tap(data => console.log("removing old prayer Requests")),
-    catchError(this.handleError<boolean>('error deleting old requests', null)))
+    .pipe(tap(data => console.log("removing old prayer requests")),
+    catchError(this.handleError<boolean>('error removinging old requests', null)))
   }
+  
 
 
   /**

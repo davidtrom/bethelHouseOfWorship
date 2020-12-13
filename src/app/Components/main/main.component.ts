@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-service.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
   ngOnInit() {
+    this.removeOutdatedRequests();
   }
 
+  removeOutdatedRequests(){
+    this.prayerRequestService.cleanRequests().subscribe(data => 
+      {console.log(data)})
+  }
 }
