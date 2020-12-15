@@ -16,7 +16,7 @@ export class PrayerRequestServiceService {
   private getApprovedRequestsUrl: string = this.baseUrl + "/view-approved";
   private getPendingRequestsUrl: string = this.baseUrl + "/view-pending";
   private getDeniedRequestsUrl: string = this.baseUrl + "/view-denied";
-  private approveAllRequestsUrl: string = this.baseUrl + "/prayer-requests/approve-all";
+  private approveAllRequestsUrl: string = this.baseUrl + "/approve-all";
   private deleteDeniedRequestsUrl: string = this.baseUrl +"/delete-denied";
   private cleanRequestsUrl: string = this.baseUrl + "/remove-outdated";
 
@@ -52,19 +52,19 @@ export class PrayerRequestServiceService {
   }
 
   approvePrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/prayer-requests/${id}/approve-request`, this.httpOptions)
+    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/approve-request`, this.httpOptions)
     .pipe(tap(data => console.log("approving request")),
     catchError(this.handleError<PrayerRequest>('error approving prayer request', null)));
   }
 
   denyPrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/prayer-requests/${id}/deny-request`, this.httpOptions)
+    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/deny-request`, this.httpOptions)
     .pipe(tap(data => console.log("denying request")),
     catchError(this.handleError<PrayerRequest>('error denying prayer request', null)));
   }
 
   pendingPrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/prayer-requests/${id}/pending-request`, this.httpOptions)
+    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/pending-request`, this.httpOptions)
     .pipe(tap(data => console.log("pending request")),
     catchError(this.handleError<PrayerRequest>('error pending prayer request', null)));
   }

@@ -9,11 +9,12 @@ import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-ser
 export class PrayerRequestReviewComponent implements OnInit {
 
   noRequests: boolean;
-  showingPending: boolean=true;
-  showingApproved: boolean=false;
-  showingDenied: boolean=false;
+  showingPending: boolean;
+  showingApproved: boolean;
+  showingDenied: boolean;
   userPrayerRequests: any[];
   status: string;
+  deniedRequests: boolean;
 
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 
@@ -67,20 +68,40 @@ export class PrayerRequestReviewComponent implements OnInit {
   }
 
   approveRequest(id: number){
-    this.prayerRequestService.approvePrayerRequest(id).subscribe(data => {console.log("approving prayer request")})
-    alert('Prayer Request has been Approved');
+    this.prayerRequestService.approvePrayerRequest(id).subscribe(data => {
+      console.log("approving prayer request");
+      if(data != null){
+        alert('Prayer Request has been Approved');
+      }
+      else{
+        alert('There was an error Approving the Prayer Request');
+      }})
     location.reload();
   }
 
   denyRequest(id: number){
-    this.prayerRequestService.denyPrayerRequest(id).subscribe(data => {console.log("denying prayer request")})
-    alert('Prayer Request has been Denied');
+    this.prayerRequestService.denyPrayerRequest(id).subscribe(data => {
+      console.log("denying prayer request");
+      if(data != null){
+        alert('Prayer Request has been Denied');
+      }
+      else{
+        alert('There was an error Denying the Prayer Request');
+      }
+    })
     location.reload();
   }
 
   pendingRequest(id: number){
-    this.prayerRequestService.pendingPrayerRequest(id).subscribe(data => {console.log("pending prayer request")})
-    alert('Prayer Request has been returned to Pending');
+    this.prayerRequestService.pendingPrayerRequest(id).subscribe(data => {
+      console.log("pending prayer request");
+      if(data != null){
+        alert('Prayer Request has been returned to Pending');
+      }
+      else{
+        alert('There was an error Denying the Prayer Request');
+      }
+    })
     location.reload();
   }
 
