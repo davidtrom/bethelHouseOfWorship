@@ -10,6 +10,8 @@ export class ViewPrayerRequestsComponent implements OnInit {
 
   noRequests: boolean;
   approvedPrayerRequests: any[];
+  p: number = 1;
+  
 
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 

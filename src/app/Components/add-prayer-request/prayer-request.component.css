@@ -30,6 +30,12 @@
     font-weight: bold;
   }
 
+  #note{
+    color: rgb(233, 62, 10);
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   .formNotValid{
     color: red;
     text-align: center;

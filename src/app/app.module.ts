@@ -21,6 +21,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { PrayerRequestReviewComponent } from './Components/prayer-request-review/prayer-request-review.component';
 import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -47,7 +48,8 @@ import { TestimonialReviewComponent } from './Components/testimonial-review/test
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

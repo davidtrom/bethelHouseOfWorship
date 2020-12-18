@@ -2,15 +2,13 @@
     <div class="heading">
         <h1>Request Prayers</h1>
         <div id="headingDetails">
-            * - Required Fields 
+            * - Required Fields
+            <p id="note">Please Note - Prayer requests will be deleted after 60 days.
+                <br>If you continue to need more prayers, please make another request.</p> 
         </div>
     </div>
 
     <hr>
-
-    <!-- <div class="buttons">
-        Link to other places for view prayer requests?
-    </div> -->
 
     <div class="container">
         <form [formGroup]="prayerRequestForm" (ngSubmit)="onSubmit()">

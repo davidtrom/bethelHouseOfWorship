@@ -33,3 +33,13 @@ hr{
 .card{
     border-color: #422da3;
 }
+
+#note{
+    color: rgb(233, 62, 10);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.paginationCtrls{
+    text-align: center;
+}
