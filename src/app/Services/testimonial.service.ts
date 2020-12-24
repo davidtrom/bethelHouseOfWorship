@@ -28,7 +28,7 @@ export class TestimonialService {
       catchError(this.handleError<Testimonial>('error sending request', null)))
   }
 
-  getAllTestimonials(): Observable<Testimonial[]>{
+  getApprovedTestimonials(): Observable<Testimonial[]>{
     return this.http.get<Testimonial[]>(this.getAllRequestsUrl, this.httpOptions)
       .pipe(tap(data => console.log("fetching requested testimonials")),
       catchError(this.handleError<Testimonial[]>('error getting testimonials', null)))

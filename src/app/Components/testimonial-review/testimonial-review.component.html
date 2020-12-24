@@ -1,1 +1,150 @@
-<p>testimonial-review works!</p>
+
+<div class="flex-container">
+    <div class="title">
+        <h1>Pastor Dashboard - View Testimonials</h1>
+        <h3>Currently Viewing {{this.status}} Requests</h3>
+    </div>
+
+
+    
+    <div *ngIf="showingPending">
+        <div class="row">
+            <div class="col-md-6" id="approvedBtn">
+                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedRequests()">
+                    View All Approved Testimonials
+                </button>
+            </div>
+            <div class="col-md-6" id="deniedBtn">
+                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedRequests()">
+                    View All Denied Testimonials
+                </button>
+            </div>
+        </div>
+        <div *ngIf="!noRequests" class="row approveAllBtn">
+            <div class="col">
+                <button type="button" class="btn btn-success btn-sm" (click)="approveAllRequests()">
+                    Approve All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showingApproved">
+        <div class="row">
+            <div class="col-md-6" id="pendingBtn">
+                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingRequests()">
+                    View Pending Requests
+                </button>
+            </div>
+            <div class="col-md-6" id="deniedBtn">
+                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedRequests()">
+                    View Denied Requests
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showingDenied">
+        <div  class="row">
+            <div class="col-md-6" id="pendingBtn">
+                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingRequests()">
+                    View Pending Requests
+                </button>
+            </div>
+            <div class="col-md-6" id="approvedBtn">
+                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedRequests()">
+                    View All Approved Requests
+                </button>
+            </div>
+        </div>
+        <div *ngIf ="!noRequests" class="row deleteAllBtn">
+            <div class="col">
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteDeniedRequests()">
+                    Delete Requests
+                </button>
+                <br>
+                <small><strong>*This will delete ALL current Prayer Requests marked as DENIED*</strong></small>     
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="noRequests; else showRequests">
+        <div class="flex-container">
+            <div class="container">
+                <h1 class="title">No {{this.status}} Prayer Requests to Review!</h1>
+                <div class="viewPrayerRequestsText">At this time there are no prayer requests listed.  Please check back again soon
+                    for prayer requests that may have been added.</div>
+            </div>
+        </div>
+    </div> 
+
+    <ng-template #showRequests>
+        <div class="flex-container">
+            <div *ngFor="let userPrayerRequest of userPrayerRequests;">
+                <div class="card w-75 p-3 mx-auto" >
+                    <div class="card-header">
+                        <div class="headerTitle">
+                            <strong>Date Posted:</strong> {{userPrayerRequest.creationDate | date:'shortDate'}}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                            <div class= "requestTitle">
+                                <u><strong>Request:</strong></u>
+                            </div>
+                            <div class= "requestText">
+                                {{userPrayerRequest.prayerRequest}} 
+                            </div>
+                    </div>
+                    <div class="card-footer">
+                        <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
+                        <br> 
+                        <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
+                        <br>
+                        <strong>Status: </strong>{{userPrayerRequest.requestStatus}}
+                    </div>
+                    <div *ngIf="showingPending" class="row">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-success btn-sm" (click)="approveRequest(userPrayerRequest.id)">
+                                Approve Request
+                            </button>
+                        </div>
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="denyRequest(userPrayerRequest.id)">
+                                Deny Request
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="showingApproved" class="row">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingRequest(userPrayerRequest.id)">
+                                Mark Pending
+                            </button>
+                        </div>
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="denyRequest(userPrayerRequest.id)">
+                                Deny Request
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="showingDenied" class="row">
+                        <div class="col-md-4" id="approvedBtn">
+                            <button type="button" class="btn btn-success btn-sm" (click)="approveRequest(userPrayerRequest.id)">
+                                Approve Request
+                            </button>
+                        </div>
+                        <div class="col-md-4" id="deniedBtn">
+                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingRequest(userPrayerRequest.id)">
+                                Mark Pending
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>    
+            </div>  
+        </div>
+        <br>  
+    </ng-template>
+
+</div>
+

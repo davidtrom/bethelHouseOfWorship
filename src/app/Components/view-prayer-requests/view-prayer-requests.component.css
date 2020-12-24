@@ -22,10 +22,6 @@ hr{
 }
 
 .viewPrayerRequestsText{
-    /* padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 2%;
-    padding-bottom: 3%; */
     text-align: center;
     padding-top: 2%;
 }
@@ -40,6 +36,7 @@ hr{
     padding-right: 5%;
 }
 
-.paginationCtrls{
+#paginationCntrls{
     text-align: center;
+    padding-top: 1%;
 }

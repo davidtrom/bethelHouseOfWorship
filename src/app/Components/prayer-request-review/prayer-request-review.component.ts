@@ -15,6 +15,7 @@ export class PrayerRequestReviewComponent implements OnInit {
   userPrayerRequests: any[];
   status: string;
   deniedRequests: boolean;
+  p: number = 1;
 
   constructor(private prayerRequestService: PrayerRequestServiceService) { }
 

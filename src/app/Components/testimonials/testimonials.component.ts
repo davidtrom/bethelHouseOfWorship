@@ -10,6 +10,7 @@ export class TestimonialsComponent implements OnInit {
 
   userTestimonials: any[];
   noTestimonials: boolean;
+  p: number = 1;
 
   constructor(private testimonialService: TestimonialService) { }
 
@@ -18,7 +19,7 @@ export class TestimonialsComponent implements OnInit {
   }
 
   getTestimonials(){
-    this.testimonialService.getAllTestimonials().subscribe(data => {
+    this.testimonialService.getApprovedTestimonials().subscribe(data => {
       console.log("fetching testimonials");
       this.userTestimonials = data;
       if(this.userTestimonials.length === 0){

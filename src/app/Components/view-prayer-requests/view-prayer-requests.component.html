@@ -24,7 +24,7 @@
             <div class="title">
                 <h1>Prayer Requests:</h1>
             </div>
-            <div *ngFor="let approvedPrayerRequest of approvedPrayerRequests | paginate: {itemsPerPage: 1, currentPage: p}">
+            <div *ngFor="let approvedPrayerRequest of approvedPrayerRequests | paginate: {itemsPerPage: 3, currentPage: p}">
                 <div class="card w-75 p-3 mx-auto" >
                     <div class="card-header">
                         <div class="headerTitle">
@@ -47,7 +47,7 @@
                 </div> 
                 <br>
             </div>
-            <div>
+            <div id="paginationCntrls">
                 <pagination-controls (pageChange) = "p = $event"
                     previousLabel = "Prev"
                     nextLabel = "Next"

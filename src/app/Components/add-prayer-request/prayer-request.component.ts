@@ -46,7 +46,7 @@ export class PrayerRequestComponent implements OnInit {
         this.prayerRequestService.addPrayerRequest(prayerRequest).subscribe(
           data => {
             console.log("sending request", data);     
-          if(data !== null){
+          if(data == true){
             alert('Your request has been sent');
           }
           else {

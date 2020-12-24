@@ -34,3 +34,8 @@ hr{
 .card{
     border-color: #422da3;
 }
+
+#paginationCntrls{
+    text-align: center;
+    padding-top: 1%;
+}

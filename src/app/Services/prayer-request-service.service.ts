@@ -27,10 +27,10 @@ export class PrayerRequestServiceService {
   
   constructor(private http: HttpClient) { }
 
-  addPrayerRequest(prayerRequest: PrayerRequest): Observable<PrayerRequest>{
-    return this.http.post<PrayerRequest>(this.addRequestUrl, prayerRequest, this.httpOptions)
+  addPrayerRequest(prayerRequest: PrayerRequest): Observable<boolean>{
+    return this.http.post<boolean>(this.addRequestUrl, prayerRequest, this.httpOptions)
       .pipe(tap(data => console.log("sending prayer request", data)), 
-      catchError(this.handleError<PrayerRequest>('error sending request', null)))
+      catchError(this.handleError<boolean>('error sending request', null)))
   }
 
   getApprovedPrayerRequests(): Observable<PrayerRequest[]>{

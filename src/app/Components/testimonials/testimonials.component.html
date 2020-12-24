@@ -7,10 +7,6 @@
 
     <hr>
 
-    <!-- <div class="testimonialText">
-        Coming soon!  Please pardon our appearance as we continue construction.
-    </div> -->
-
     <div *ngIf="noTestimonials; else showTestimonials">
         <div class="flex-container">
             <div class="container">
@@ -26,7 +22,7 @@
             <div class="title">
                 <h1>Testimonials:</h1>
             </div>
-            <div *ngFor="let userTestimonial of userTestimonials;">
+            <div *ngFor="let userTestimonial of userTestimonials | paginate: {itemsPerPage: 3, currentPage: p}">
                 <div class="card w-75 p-3 mx-auto" >
                     <div class="card-header">
                         <div class="headerTitle">
@@ -47,11 +43,17 @@
                             <strong>Testimony by: </strong>{{userTestimonial.firstName}}
                             <br> 
                             <strong>Location: </strong>{{userTestimonial.locationCity}}, {{userTestimonial.locationState}}, {{userTestimonial.locationCountry}}
-                            
                         </div>
                     </div>
                 </div> 
                 <br> 
+            </div>
+            <div id="paginationCntrls">
+                <pagination-controls (pageChange) = "p = $event"
+                    previousLabel = "Prev"
+                    nextLabel = "Next"
+                    responsive = "true">
+                </pagination-controls>
             </div>
         </div>
     </ng-template>
