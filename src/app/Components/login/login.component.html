@@ -1,34 +1,33 @@
 
-    <!-- <div class="container"> -->
-        <div class="title">
-            <h1><u>Pastor Login:</u></h1>
-        </div>
-        <div class="container">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group"> 
-                    
-                    <label for="pastorUsername">Username:</label>
-                    <input type="email" formControlName = "pastorUsername" class="form-control" id="pastorUsername" size="40" placeholder="Username" [ngClass]="{'is-invalid': form.pastorUsername.errors && (form.pastorUsername.touched || form.pastorUsername.dirty)}">
-                    <div *ngIf="form.pastorUsername.errors && (form.pastorUsername.touched || form.pastorUsername.dirty)" class="invalid-feedback">
-                        <div *ngIf='form.pastorUsername.errors.required'>*Username is Required</div>
-                    </div>
-                    
-                    <label for="pastorPassword">Password:</label>
-                    <input size="40" type="password" formControlName = "pastorPassword" class="form-control" id="pastorPassword" placeholder="Password" [ngClass]="{'is-invalid': form.pastorPassword.errors && (form.pastorPassword.touched || form.pastorPassword.dirty)}">
-                    <div *ngIf="form.pastorPassword.errors && (form.pastorPassword.touched || form.pastorPassword.dirty)" class="invalid-feedback">
-                        <div *ngIf='form.pastorPassword.errors.required'>*Password is Required</div>    
-                    </div>
-
-                    <div *ngIf="invalidLogin" class="alert alert-danger"> 
-                        *The username or password you have entered is invalid!
-                        <br>
-                        Please try again.
-                    </div> 
+<div class="title">
+    <h1><u>Pastor Login:</u></h1>
+</div>
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group"> 
             
-                    <div id="btnSubmit">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>   
-                </div>
-            </form>
-    </div>
-<!-- </div> -->
+            <label for="pastorUsername">Username:</label>
+            <input type="email" formControlName = "pastorUsername" class="form-control" id="pastorUsername" size="40" placeholder="Username" [ngClass]="{'is-invalid': form.pastorUsername.errors && (form.pastorUsername.touched || form.pastorUsername.dirty)}">
+            <div *ngIf="form.pastorUsername.errors && (form.pastorUsername.touched || form.pastorUsername.dirty)" class="invalid-feedback">
+                <div *ngIf='form.pastorUsername.errors.required'>*Username is Required</div>
+            </div>
+            
+            <label for="pastorPassword">Password:</label>
+            <input size="40" type="password" formControlName = "pastorPassword" class="form-control" id="pastorPassword" placeholder="Password" [ngClass]="{'is-invalid': form.pastorPassword.errors && (form.pastorPassword.touched || form.pastorPassword.dirty)}">
+            <div *ngIf="form.pastorPassword.errors && (form.pastorPassword.touched || form.pastorPassword.dirty)" class="invalid-feedback">
+                <div *ngIf='form.pastorPassword.errors.required'>*Password is Required</div>    
+            </div>
+
+            <div *ngIf="invalidLogin" class="alert alert-danger"> 
+                *The username or password you have entered is invalid!
+                <br>
+                Please try again.
+            </div> 
+    
+            <div id="btnSubmit">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>   
+        </div>
+    </form>
+</div>
+
