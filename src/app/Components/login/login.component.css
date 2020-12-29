@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    font-size: 13pt;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    justify-content: center;
+}
+
+.title{
+    color: #422da3;
+    text-align: center;
+    padding-top: 1.5%;
+}
+
+.form-group{
+    align-self: center;
+    border: 1px solid #422da3;
+    padding: 5%
+}
+
+#btnSubmit{
+    padding-top: 2%;
+    text-align: center;
+}
+
+#pastorUsername{
+    width:90%;
+}
+
+#pastorPassword{
+    width:90%;
+}
