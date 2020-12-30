@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { PrayerRequest } from '../Models/prayer-request.model';
 import { Testimonial } from '../Models/testimonial.model';
 
 @Injectable({
@@ -31,7 +30,7 @@ export class TestimonialService {
   addTestimonial(testimonial: Testimonial): Observable<boolean>{
     return this.http.post<boolean>(this.addTestimonialUrl, testimonial, this.httpOptions)
       .pipe(tap(data => console.log("sending testimony", data)), 
-      catchError(this.handleError<boolean>('error sending request', null)))
+      catchError(this.handleError<boolean>('error sending testimonial', null)))
   }
 
   getApprovedTestimonials(): Observable<Testimonial[]>{
@@ -40,40 +39,40 @@ export class TestimonialService {
       catchError(this.handleError<Testimonial[]>('error getting testimonials', null)))
   }
 
-  getPendingPrayerTestimonials(): Observable<PrayerRequest[]>{
-    return this.http.get<PrayerRequest[]>(this.getPendingTestimonialsUrl, this.httpOptions)
+  getPendingTestimonials(): Observable<Testimonial[]>{
+    return this.http.get<Testimonial[]>(this.getPendingTestimonialsUrl, this.httpOptions)
       .pipe(tap(data => console.log("fetching testimonials")),
-      catchError(this.handleError<PrayerRequest[]>('error getting pending testimonials', null)))
+      catchError(this.handleError<Testimonial[]>('error getting pending testimonials', null)))
   }
 
-  getDeniedPrayerTestimonials(): Observable<PrayerRequest[]>{
-    return this.http.get<PrayerRequest[]>(this.getDeniedTestimonialsUrl, this.httpOptions)
+  getDeniedTestimonials(): Observable<Testimonial[]>{
+    return this.http.get<Testimonial[]>(this.getDeniedTestimonialsUrl, this.httpOptions)
       .pipe(tap(data => console.log("fetching testimonials")),
-      catchError(this.handleError<PrayerRequest[]>('error getting denied testimonials', null)))
+      catchError(this.handleError<Testimonial[]>('error getting denied testimonials', null)))
   }
 
-  approvePrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/approve-testimonial`, this.httpOptions)
-    .pipe(tap(data => console.log("approving request")),
-    catchError(this.handleError<PrayerRequest>('error approving testimonial', null)));
+  approveTestimonial(id: number): Observable<Testimonial>{
+    return this.http.put<Testimonial>(this.baseUrl+`/${id}/approve-testimonial`, this.httpOptions)
+    .pipe(tap(data => console.log("approving testimonial")),
+    catchError(this.handleError<Testimonial>('error approving testimonial', null)));
   }
 
-  denyPrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/deny-testimonial`, this.httpOptions)
-    .pipe(tap(data => console.log("denying request")),
-    catchError(this.handleError<PrayerRequest>('error denying testimonial', null)));
+  denyTestimonial(id: number): Observable<Testimonial>{
+    return this.http.put<Testimonial>(this.baseUrl+`/${id}/deny-testimonial`, this.httpOptions)
+    .pipe(tap(data => console.log("denying testimonial")),
+    catchError(this.handleError<Testimonial>('error denying testimonial', null)));
   }
 
-  pendingPrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.put<PrayerRequest>(this.baseUrl+`/${id}/pending-testimonial`, this.httpOptions)
-    .pipe(tap(data => console.log("pending request")),
-    catchError(this.handleError<PrayerRequest>('error pending prayer request', null)));
+  pendingTestimonial(id: number): Observable<Testimonial>{
+    return this.http.put<Testimonial>(this.baseUrl+`/${id}/pending-testimonial`, this.httpOptions)
+    .pipe(tap(data => console.log("pending testimonial")),
+    catchError(this.handleError<Testimonial>('error pending testimonial', null)));
   }
 
-  deletePrayerRequest(id: number): Observable<PrayerRequest>{
-    return this.http.post<PrayerRequest>(this.baseUrl + `/testimonials/${id}/delete-testimonial`, this.httpOptions)
-      .pipe(tap(data => console.log("deleting prayer request")), 
-      catchError(this.handleError<PrayerRequest>('error deleting request', null)))
+  deleteTestimonial(id: number): Observable<Testimonial>{
+    return this.http.post<Testimonial>(this.baseUrl + `/testimonials/${id}/delete-testimonial`, this.httpOptions)
+      .pipe(tap(data => console.log("deleting testimonial")), 
+      catchError(this.handleError<Testimonial>('error deleting testimonial', null)))
   }
 
   approveAllPrayerTestimonials():Observable<boolean>{

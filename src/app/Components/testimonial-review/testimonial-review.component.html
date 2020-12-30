@@ -2,7 +2,7 @@
 <div class="flex-container">
     <div class="title">
         <h1>Pastor Dashboard - View Testimonials</h1>
-        <h3>Currently Viewing {{this.status}} Requests</h3>
+        <h3>Currently Viewing {{this.status}} Testimonials</h3>
     </div>
 
 
@@ -10,19 +10,19 @@
     <div *ngIf="showingPending">
         <div class="row">
             <div class="col-md-6" id="approvedBtn">
-                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedRequests()">
+                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedTestimonials()">
                     View All Approved Testimonials
                 </button>
             </div>
             <div class="col-md-6" id="deniedBtn">
-                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedRequests()">
+                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedTestimonials()">
                     View All Denied Testimonials
                 </button>
             </div>
         </div>
-        <div *ngIf="!noRequests" class="row approveAllBtn">
+        <div *ngIf="!noTestimonials" class="row approveAllBtn">
             <div class="col">
-                <button type="button" class="btn btn-success btn-sm" (click)="approveAllRequests()">
+                <button type="button" class="btn btn-success btn-sm" (click)="approveAllTestimonials()">
                     Approve All
                 </button>
             </div>
@@ -32,13 +32,13 @@
     <div *ngIf="showingApproved">
         <div class="row">
             <div class="col-md-6" id="pendingBtn">
-                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingRequests()">
-                    View Pending Requests
+                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingTestimonials()">
+                    View Pending Testimonials
                 </button>
             </div>
             <div class="col-md-6" id="deniedBtn">
-                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedRequests()">
-                    View Denied Requests
+                <button type="button" class="btn btn-danger btn-sm" (click)="getDeniedTestimonials()">
+                    View Denied Testimonials
                 </button>
             </div>
         </div>
@@ -47,103 +47,109 @@
     <div *ngIf="showingDenied">
         <div  class="row">
             <div class="col-md-6" id="pendingBtn">
-                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingRequests()">
-                    View Pending Requests
+                <button type="button" class="btn btn-warning btn-sm" (click)="getPendingTestimonials()">
+                    View Pending Testimonials
                 </button>
             </div>
             <div class="col-md-6" id="approvedBtn">
-                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedRequests()">
-                    View All Approved Requests
+                <button type="button" class="btn btn-success btn-sm" (click)="getApprovedTestimonials()">
+                    View All Approved Testimonials
                 </button>
             </div>
         </div>
-        <div *ngIf ="!noRequests" class="row deleteAllBtn">
+        <div *ngIf ="!noTestimonials" class="row deleteAllBtn">
             <div class="col">
-                <button type="button" class="btn btn-danger btn-sm" (click)="deleteDeniedRequests()">
-                    Delete Requests
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteDeniedTestimonials()">
+                    Delete Testimonials
                 </button>
                 <br>
-                <small><strong>*This will delete ALL current Prayer Requests marked as DENIED*</strong></small>     
+                <small><strong>*This will delete ALL current Prayer Testimonials marked as DENIED*</strong></small>     
             </div>
         </div>
     </div>
 
 
-    <div *ngIf="noRequests; else showRequests">
+    <div *ngIf="noTestimonials; else showTestimonials">
         <div class="flex-container">
             <div class="container">
-                <h1 class="title">No {{this.status}} Prayer Requests to Review!</h1>
-                <div class="viewPrayerRequestsText">At this time there are no prayer requests listed.  Please check back again soon
-                    for prayer requests that may have been added.</div>
+                <h1 class="title">No {{this.status}} Prayer Testimonials to Review!</h1>
+                <div class="viewPrayerTestimonialsText">At this time there are no prayer Testimonials listed.  Please check back again soon
+                    for prayer Testimonials that may have been added.</div>
             </div>
         </div>
     </div> 
 
-    <ng-template #showRequests>
+    <ng-template #showTestimonials>
         <div class="flex-container">
-            <div *ngFor="let userPrayerRequest of userPrayerRequests;">
+            <div *ngFor="let userTestimonial of userTestimonials | paginate: {itemsPerPage: 3, currentPage: p}">
                 <div class="card w-75 p-3 mx-auto" >
                     <div class="card-header">
                         <div class="headerTitle">
-                            <strong>Date Posted:</strong> {{userPrayerRequest.creationDate | date:'shortDate'}}
+                            <strong>Date Posted:</strong> {{userTestimonial.creationDate | date:'shortDate'}}
                         </div>
                     </div>
                     <div class="card-body">
-                            <div class= "requestTitle">
-                                <u><strong>Request:</strong></u>
+                            <div class= "testimonialTitle">
+                                <u><strong>Testimonial:</strong></u>
                             </div>
-                            <div class= "requestText">
-                                {{userPrayerRequest.prayerRequest}} 
+                            <div class= "testimonialText">
+                                {{userTestimonial.testimonial}} 
                             </div>
                     </div>
                     <div class="card-footer">
-                        <strong>Requestor: </strong>{{userPrayerRequest.firstName}}
+                        <strong>Attestant: </strong>{{userTestimonial.firstName}}
                         <br> 
-                        <strong>Location: </strong>{{userPrayerRequest.locationCity}}, {{userPrayerRequest.locationState}}, {{userPrayerRequest.locationCountry}}
+                        <strong>Location: </strong>{{userTestimonial.locationCity}}, {{userTestimonial.locationState}}, {{userTestimonial.locationCountry}}
                         <br>
-                        <strong>Status: </strong>{{userPrayerRequest.requestStatus}}
+                        <strong>Status: </strong>{{userTestimonial.requestStatus}}
                     </div>
                     <div *ngIf="showingPending" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-success btn-sm" (click)="approveRequest(userPrayerRequest.id)">
-                                Approve Request
+                            <button type="button" class="btn btn-success btn-sm" (click)="approveTestimonial(userTestimonial.id)">
+                                Approve Testimonial
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-danger btn-sm" (click)="denyRequest(userPrayerRequest.id)">
-                                Deny Request
+                            <button type="button" class="btn btn-danger btn-sm" (click)="denyTestimonial(userTestimonial.id)">
+                                Deny Testimonial
                             </button>
                         </div>
                     </div>
                     <div *ngIf="showingApproved" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingRequest(userPrayerRequest.id)">
+                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingTestimonial(userTestimonial.id)">
                                 Mark Pending
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-danger btn-sm" (click)="denyRequest(userPrayerRequest.id)">
-                                Deny Request
+                            <button type="button" class="btn btn-danger btn-sm" (click)="denyTestimonial(userTestimonial.id)">
+                                Deny Testimonial
                             </button>
                         </div>
                     </div>
                     <div *ngIf="showingDenied" class="row">
                         <div class="col-md-4" id="approvedBtn">
-                            <button type="button" class="btn btn-success btn-sm" (click)="approveRequest(userPrayerRequest.id)">
-                                Approve Request
+                            <button type="button" class="btn btn-success btn-sm" (click)="approveTestimonial(userTestimonial.id)">
+                                Approve Testimonial
                             </button>
                         </div>
                         <div class="col-md-4" id="deniedBtn">
-                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingRequest(userPrayerRequest.id)">
+                            <button type="button" class="btn btn-warning btn-sm" (click)="pendingTestimonial(userTestimonial.id)">
                                 Mark Pending
                             </button>
                         </div>
                     </div>
                 </div>
                 <br>    
-            </div>  
+            </div> 
+            <div id="paginationCntrls">
+                <pagination-controls (pageChange) = "p = $event"
+                    previousLabel = "Prev"
+                    nextLabel = "Next"
+                    responsive = "true">
+                </pagination-controls>
+            </div> 
         </div>
-        <br>  
     </ng-template>
 
 </div>
