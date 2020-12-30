@@ -79,4 +79,53 @@ export class TestimonialReviewComponent implements OnInit {
     location.reload();
   }
 
+  denyTestimonial(id: number){
+    this.testimonialService.denyTestimonial(id).subscribe(data => {
+      console.log("denying testimonial");
+      if(data != null){
+        alert('Testimonial has been Denied');
+      }
+      else{
+        alert('There was an error Denying the Testimonial');
+      }
+    })
+    location.reload();
+  }
+
+  pendingTestimonial(id: number){
+    this.testimonialService.pendingTestimonial(id).subscribe(data => {
+      console.log("pending Testimonial");
+      if(data != null){
+        alert('Testimonial has been returned to Pending');
+      }
+      else{
+        alert('There was an error Pending the Testimonial');
+      }
+    })
+    location.reload();
+  }
+
+  approveAllTestimonials(){
+    this.testimonialService.approveAllTestimonials().subscribe(data => {console.log("approving all testimonials");
+      if(data == true){
+        alert('All Testimonials have been approved');
+      }
+      else{
+      alert('There was an error approving all Testimonials');
+      }
+    })
+    location.reload();
+  }
+
+  deleteDeniedTestimonials(){
+    this.testimonialService.deleteDeniedTestimonials().subscribe(data => {console.log("deleting denied testimonials");
+      if(data == true){
+        alert('ALL DENIED Testimonials have been deleted');
+      }
+      else{
+      alert('There was an error deleting all Testimonials');
+      }
+    })
+    location.reload();
+  }
 }

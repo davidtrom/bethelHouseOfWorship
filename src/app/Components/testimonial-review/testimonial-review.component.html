@@ -5,8 +5,6 @@
         <h3>Currently Viewing {{this.status}} Testimonials</h3>
     </div>
 
-
-    
     <div *ngIf="showingPending">
         <div class="row">
             <div class="col-md-6" id="approvedBtn">
@@ -72,9 +70,9 @@
     <div *ngIf="noTestimonials; else showTestimonials">
         <div class="flex-container">
             <div class="container">
-                <h1 class="title">No {{this.status}} Prayer Testimonials to Review!</h1>
-                <div class="viewPrayerTestimonialsText">At this time there are no prayer Testimonials listed.  Please check back again soon
-                    for prayer Testimonials that may have been added.</div>
+                <h1 class="title">No {{this.status}} Testimonials to Review!</h1>
+                <div class="viewPrayerTestimonialsText">At this time there are no Testimonials waiting for review.  Please check back again soon
+                    for any new Testimonials that may have been added.</div>
             </div>
         </div>
     </div> 
@@ -146,7 +144,8 @@
                 <pagination-controls (pageChange) = "p = $event"
                     previousLabel = "Prev"
                     nextLabel = "Next"
-                    responsive = "true">
+                    responsive = "true"
+                    autoHide="true">
                 </pagination-controls>
             </div> 
         </div>

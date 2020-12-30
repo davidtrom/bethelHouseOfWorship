@@ -8,24 +8,24 @@
 .title{
     color: #422da3;
     text-align: center;
-    padding-bottom: 1.5%;
+    padding-bottom: 1%;
 }
 
 #approvedBtn{
     text-align: center;
-    padding-top: 2%;
+    padding-top: 1%;
     padding-bottom:2%;
 }
 
 #pendingBtn{
     text-align: center;
-    padding-top: 2%;
+    padding-top: 1%;
     padding-bottom:2%;
 }
 
 #deniedBtn{
     text-align: center;
-    padding-top: 2%;
+    padding-top: 1%;
     padding-bottom:2%;
 }
 

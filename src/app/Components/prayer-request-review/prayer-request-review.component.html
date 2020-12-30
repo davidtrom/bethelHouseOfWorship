@@ -81,7 +81,7 @@
 
     <ng-template #showRequests>
         <div class="flex-container">
-            <div *ngFor="let userPrayerRequest of userPrayerRequests;">
+            <div *ngFor="let userPrayerRequest of userPrayerRequests | paginate: {itemsPerPage: 3, currentPage: p}">
                 <div class="card w-75 p-3 mx-auto" >
                     <div class="card-header">
                         <div class="headerTitle">
@@ -141,9 +141,16 @@
                     </div>
                 </div>
                 <br>    
-            </div>  
-        </div>
-        <br>  
+            </div>
+            <div id="paginationCntrls">
+                <pagination-controls (pageChange) = "p = $event"
+                    previousLabel = "Prev"
+                    nextLabel = "Next"
+                    responsive = "true"
+                    autoHide="true">
+                </pagination-controls>
+            </div> 
+        </div>  
     </ng-template>
 
 </div>

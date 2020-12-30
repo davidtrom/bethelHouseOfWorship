@@ -75,7 +75,7 @@ export class TestimonialService {
       catchError(this.handleError<Testimonial>('error deleting testimonial', null)))
   }
 
-  approveAllPrayerTestimonials():Observable<boolean>{
+  approveAllTestimonials():Observable<boolean>{
     return this.http.put<boolean>(this.approveAllTestimonialsUrl, this.httpOptions)
     .pipe(tap(data => console.log("approving all testimonials")),
     catchError(this.handleError<boolean>('error approving all testimonials', null)))

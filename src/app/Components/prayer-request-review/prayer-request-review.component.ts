@@ -100,7 +100,7 @@ export class PrayerRequestReviewComponent implements OnInit {
         alert('Prayer Request has been returned to Pending');
       }
       else{
-        alert('There was an error Denying the Prayer Request');
+        alert('There was an error Pending the Prayer Request');
       }
     })
     location.reload();
@@ -129,5 +129,4 @@ export class PrayerRequestReviewComponent implements OnInit {
     })
     location.reload();
   }
-
 }
