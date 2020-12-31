@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from 'src/app/Services/contact.service';
 import { PrayerRequestServiceService } from 'src/app/Services/prayer-request-service.service';
 import { TestimonialService } from 'src/app/Services/testimonial.service';
 
@@ -9,11 +10,12 @@ import { TestimonialService } from 'src/app/Services/testimonial.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private prayerRequestService: PrayerRequestServiceService, private testimonialService: TestimonialService) { }
+  constructor(private prayerRequestService: PrayerRequestServiceService, private testimonialService: TestimonialService, private contactService: ContactService) { }
 
   ngOnInit() {
     this.removeOutdatedRequests();
     this.removeOutdatedTestimonials();
+    this.removeOutdatedContacts();
   }
 
   removeOutdatedRequests(){
@@ -26,5 +28,8 @@ export class MainComponent implements OnInit {
       {console.log(data)})
   }
 
-  //removeOutdatedContacts?
+  removeOutdatedContacts(){
+    this.contactService.removeOldContacts().subscribe(data =>
+      {console.log(data)})
+  }
 }

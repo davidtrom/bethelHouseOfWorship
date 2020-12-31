@@ -16,7 +16,6 @@ export class ContactComponent implements OnInit {
   constructor(private fb:FormBuilder, private contactService: ContactService) { }
 
   ngOnInit() {
-
     this.contactForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       lastName: ['', [Validators.required, Validators.pattern('^[a-z. A-Z]+$')]],
@@ -27,6 +26,7 @@ export class ContactComponent implements OnInit {
       country: ['', Validators.required],
       message: ['', Validators.required],
     });
+    this.removeOutdatedContacts();
   }
 
   get form() { return this.contactForm.controls; }
@@ -64,6 +64,11 @@ export class ContactComponent implements OnInit {
       this.contactForm.markAllAsTouched();
       this.formNotValid = true;
     }
-  } 
+  }
+  
+  removeOutdatedContacts(){
+    this.contactService.removeOldContacts().subscribe(data =>
+      {console.log(data)})
+  }
 
 }
