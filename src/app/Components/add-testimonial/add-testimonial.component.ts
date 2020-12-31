@@ -24,6 +24,8 @@ export class AddTestimonialComponent implements OnInit {
       country: ['', Validators.required],
       testimony: ['', Validators.required]
     });
+
+    this.removeOutdatedTestimonials();
   }
 
   get form() { return this.testimonialForm.controls; }
@@ -62,6 +64,9 @@ export class AddTestimonialComponent implements OnInit {
     }
   } 
 
-
+  removeOutdatedTestimonials(){
+    this.testimonialService.cleanTestimonials().subscribe(data => 
+      {console.log(data)})
+  }
 
 }

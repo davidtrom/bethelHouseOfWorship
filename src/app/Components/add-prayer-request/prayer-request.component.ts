@@ -25,6 +25,8 @@ export class PrayerRequestComponent implements OnInit {
       country: ['', Validators.required],
       prayerRequest: ['', Validators.required]
     });
+
+    this.removeOutdatedRequests();
   }
 
   get form() { return this.prayerRequestForm.controls; }
@@ -63,4 +65,8 @@ export class PrayerRequestComponent implements OnInit {
     }
   } 
 
+  removeOutdatedRequests(){
+    this.prayerRequestService.cleanRequests().subscribe(data => 
+      {console.log(data)})
+  }
 }
