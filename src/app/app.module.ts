@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './Components/main/main.component';
@@ -22,7 +21,8 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { PrayerRequestReviewComponent } from './Components/prayer-request-review/prayer-request-review.component';
 import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { JwtInterceptor } from './Helpers/JwtInterceptor';
+//import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -51,7 +51,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

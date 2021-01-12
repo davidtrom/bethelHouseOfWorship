@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   collapsed: boolean = true;
+  isLoggedIn: boolean;
 
-  constructor() { }
+  constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
+
   }
 
   collapse(): boolean{
@@ -21,6 +24,17 @@ export class HeaderComponent implements OnInit {
       this.collapsed = true;
     }
     return this.collapsed;
+  }
+
+  checkLoginStatus(){
+    if(sessionStorage.getItem('username') != null){
+      this.isLoggedIn = true;
+    }
+    else this.isLoggedIn = false;
+  }
+
+  logOut(){
+    this.authService.logOut();
   }
 
 }

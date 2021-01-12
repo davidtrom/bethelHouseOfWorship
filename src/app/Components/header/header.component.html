@@ -71,6 +71,10 @@
                             Support  
                         </a>
                     </li>
+
+                    <li *ngIf="isLoggedIn" (click)="logOut()">
+                        Log Out
+                    </li>
                 </ul>
             </div>
         </nav>

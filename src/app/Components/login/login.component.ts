@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
@@ -11,9 +12,10 @@ export class LoginComponent implements OnInit {
 
   formNotValid: boolean;
   loginForm :FormGroup;
+  loginProblem: boolean = false;
   
 
-  constructor(private fb:FormBuilder, private authService:AuthenticationService ) { }
+  constructor(private fb:FormBuilder, private authService:AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -24,8 +26,17 @@ export class LoginComponent implements OnInit {
 
   get form() { return this.loginForm.controls; }
 
-  onsubmit(): void{
-    // this.authService.
+  onSubmit(): void{
+    this.authService.verifyPastor(this.loginForm.controls.pastorUsername.value, this.loginForm.controls.pastorPassword.value).subscribe(data =>{
+      console.log("logging in ", data);
+      // if(this.authService.isUserLoggedIn()){
+      //   this.router.navigate(['/pastor-dashboard']);
+      // }
+      // else {
+      //   this.loginProblem = true;
+      // }
+    })
+    //this.router.navigate(['/pastor-dashboard']);
   }
 
 }

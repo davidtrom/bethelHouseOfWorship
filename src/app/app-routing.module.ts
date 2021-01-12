@@ -13,6 +13,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { LoginComponent } from './Components/login/login.component';
 import { PrayerRequestReviewComponent } from './Components/prayer-request-review/prayer-request-review.component';
 import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
+import { AdminGuard } from  '../app/Helpers/admin.guard';
 
 
 const routes: Routes = [
@@ -25,10 +26,10 @@ const routes: Routes = [
   { path: 'prayer-request', component: PrayerRequestComponent},
   { path: 'view-prayer-requests', component: ViewPrayerRequestsComponent},
   { path: 'add-testimonial', component: AddTestimonialComponent},
-  { path: 'pastor-dashboard', component: AdminDashboardComponent},
   { path: 'pastor-login', component: LoginComponent},
-  { path: 'prayer-request-review', component:PrayerRequestReviewComponent},
-  { path: 'testimonial-review', component:TestimonialReviewComponent},
+  { path: 'pastor-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard]},
+  { path: 'prayer-request-review', component:PrayerRequestReviewComponent, canActivate: [AdminGuard]},
+  { path: 'testimonial-review', component:TestimonialReviewComponent, canActivate: [AdminGuard]},
   
 
 
