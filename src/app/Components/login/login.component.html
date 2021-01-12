@@ -18,15 +18,16 @@
                 <div *ngIf='form.pastorPassword.errors.required'>*Password is Required</div>    
             </div>
 
-            <div *ngIf="invalidLogin" class="alert alert-danger"> 
-                *The username or password you have entered is invalid!
-                <br>
-                Please try again.
+            <div *ngIf="invalidLogin" id="loginError">
+                <div class="alert alert-danger" > 
+                    *Invalid Username or Password! <br> Please try again.
+                </div>
             </div> 
     
             <div id="btnSubmit">
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>   
+            </div> 
+            
         </div>
     </form>
 </div>

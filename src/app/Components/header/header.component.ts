@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService:AuthenticationService) { }
 
-  ngOnInit() {
-
+  ngOnInit(){
+    this.checkLoginStatus();
   }
 
   collapse(): boolean{
@@ -33,8 +33,9 @@ export class HeaderComponent implements OnInit {
     else this.isLoggedIn = false;
   }
 
-  logOut(){
+  logOut(): boolean{
     this.authService.logOut();
+    return this.collapse();
   }
 
 }

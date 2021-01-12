@@ -30,3 +30,11 @@
 #pastorPassword{
     width:90%;
 }
+
+.alert-danger{
+    text-align: center;
+}
+
+#loginError{
+    padding-top: 3%;
+}

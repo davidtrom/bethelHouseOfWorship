@@ -26,9 +26,9 @@ export class AuthenticationService {
     //let reqData: Object = {"username":username, "password": password};
     console.log(this.loginUrl);
     return this.http.post<any>(this.loginUrl, {username, password}, this.httpOptions)
-      .pipe(tap(userData => {
+      .pipe(map(userData => {
         console.log("verifying ", userData);
-        sessionStorage.setItem("username", username);
+        sessionStorage.setItem('username', username);
         console.log("authentication service jwt: " + userData.jwt);
         console.log("authentication service token: " + userData.token);
         //let tokenStr = 'Bearer ' + userData.token;

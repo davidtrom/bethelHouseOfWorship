@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   formNotValid: boolean;
   loginForm :FormGroup;
-  loginProblem: boolean = false;
+  invalidLogin: boolean = false;
   
 
   constructor(private fb:FormBuilder, private authService:AuthenticationService, private router: Router) { }
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void{
     this.authService.verifyPastor(this.loginForm.controls.pastorUsername.value, this.loginForm.controls.pastorPassword.value).subscribe(data =>{
       console.log("logging in ", data);
+      
       // if(this.authService.isUserLoggedIn()){
       //   this.router.navigate(['/pastor-dashboard']);
       // }
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
       //   this.loginProblem = true;
       // }
     })
+    this.invalidLogin = true;
     //this.router.navigate(['/pastor-dashboard']);
   }
 

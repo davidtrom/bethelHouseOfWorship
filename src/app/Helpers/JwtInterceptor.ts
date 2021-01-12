@@ -14,6 +14,8 @@ export class JwtInterceptor implements HttpInterceptor {
     if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
       req = req.clone({
         setHeaders: {
+          Accept: 'application/json',
+         'Content-Type': 'application/json',
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
         }
       })
