@@ -6,7 +6,7 @@ import { AuthenticationService } from '../Services/authentication.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService) { }
+    constructor() { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         console.log(sessionStorage.getItem('username'));

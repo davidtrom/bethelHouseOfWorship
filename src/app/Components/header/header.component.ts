@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
@@ -8,12 +9,12 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
   collapsed: boolean = true;
-  isLoggedIn: boolean;
+  pastorLoggedIn: boolean = true;
 
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit(){
-    this.checkLoginStatus();
+    this.authService.getLoginStatus().subscribe(data => {this.pastorLoggedIn = data;});
   }
 
   collapse(): boolean{
@@ -26,16 +27,15 @@ export class HeaderComponent implements OnInit {
     return this.collapsed;
   }
 
-  checkLoginStatus(){
-    if(sessionStorage.getItem('username') != null){
-      this.isLoggedIn = true;
-    }
-    else this.isLoggedIn = false;
-  }
-
   logOut(): boolean{
     this.authService.logOut();
+    this.authService.setUserLoggedIn()
     return this.collapse();
   }
+
+//   ngOnDestroy() {
+//     this.subscription1$.unsubscribe()
+//     this.subscription2$.unsubscribe()
+// }
 
 }

@@ -72,8 +72,10 @@
                         </a>
                     </li>
 
-                    <li *ngIf="isLoggedIn"  style="color:white"  role="button" (click)="logOut()">
-                        Log Out
+                    <li *ngIf="pastorLoggedIn" class="nav-item" ngbDropdown>
+                        <a class="nav-link" a [routerLink]="['/pastor-login']" routerLinkActive="router-link-active" style="color:white"  role="button" (click)="logOut()">
+                            Log Out  
+                        </a>
                     </li>
                 </ul>
             </div>
