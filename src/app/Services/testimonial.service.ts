@@ -70,7 +70,7 @@ export class TestimonialService {
   }
 
   deleteTestimonial(id: number): Observable<Testimonial>{
-    return this.http.post<Testimonial>(this.baseUrl + `/testimonials/${id}/delete-testimonial`, this.httpOptions)
+    return this.http.delete<Testimonial>(this.baseUrl + `/testimonials/${id}/delete-testimonial`, this.httpOptions)
       .pipe(tap(data => console.log("deleting testimonial")), 
       catchError(this.handleError<Testimonial>('error deleting testimonial', null)))
   }

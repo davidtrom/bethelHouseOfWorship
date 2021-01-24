@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
   collapsed: boolean = true;
-  pastorLoggedIn: boolean = true;
+  pastorLoggedIn: boolean;
 
   constructor(private authService:AuthenticationService) { }
 
@@ -29,13 +29,8 @@ export class HeaderComponent implements OnInit {
 
   logOut(): boolean{
     this.authService.logOut();
-    this.authService.setUserLoggedIn()
+    this.authService.setUserLoggedIn(false);
     return this.collapse();
   }
-
-//   ngOnDestroy() {
-//     this.subscription1$.unsubscribe()
-//     this.subscription2$.unsubscribe()
-// }
 
 }

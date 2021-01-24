@@ -31,23 +31,26 @@ export class AuthenticationService {
         console.log("verifying ", userData);
         sessionStorage.setItem('username', username);
         console.log("authentication service jwt: " + userData.jwt);
-        let tokenStr = 'Bearer ' + userData.token;
+        let tokenStr = 'Bearer ' + userData.jwt;
         sessionStorage.setItem('token', tokenStr);
-        console.log(sessionStorage.getItem('token'));
-        this.setUserLoggedIn();
+        console.log("Token: " + sessionStorage.getItem('token'));
+        if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
+          this.setUserLoggedIn(true);
+        }
         console.log("Pastor Logged In? " + this.isPastorLoggedIn$);
         return userData;
       }
       ))
   }
 
-  setUserLoggedIn() {
-    if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
-      this.isPastorLoggedIn$.next(true);
-    }
-    else{
-      this.isPastorLoggedIn$.next(false);
-    }
+  setUserLoggedIn(status:boolean) {
+    // if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
+    //   this.isPastorLoggedIn$.next(true);
+    // }
+    // else{
+    //   this.isPastorLoggedIn$.next(false);
+    // }
+    this.isPastorLoggedIn$.next(status);
   }
 
   getLoginStatus(): Observable<boolean> {
@@ -56,7 +59,5 @@ export class AuthenticationService {
 
   logOut() {
     sessionStorage.clear();
-    // sessionStorage.removeItem("username");
-    // sessionStorage.removeItem('token');
   }
 }

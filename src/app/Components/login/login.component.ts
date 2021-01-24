@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
 
   formNotValid: boolean;
   loginForm :FormGroup;
-  invalidLogin: boolean = false;
-  pastorLoggedIn: boolean;
+  invalidLogin: boolean;
+  pastorLoggedIn: boolean = true;
   
 
   constructor(private fb:FormBuilder, private authService:AuthenticationService, private router: Router) { }
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       pastorPassword: ['', Validators.required]
     });
 
-    this.authService.getLoginStatus().subscribe(data => this.pastorLoggedIn = data);
+    //this.authService.getLoginStatus().subscribe(data => this.pastorLoggedIn = data);
   }
 
   get form() { return this.loginForm.controls; }
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.authService.verifyPastor(this.loginForm.controls.pastorUsername.value, this.loginForm.controls.pastorPassword.value).subscribe(data =>{
       console.log("logging in ", data);
       //sessionStorage.setItem("token", data.jwt);
-      console.log("Login Component " + data.jwt);
       
       if(this.pastorLoggedIn){
         this.router.navigate(['/pastor-dashboard']);
