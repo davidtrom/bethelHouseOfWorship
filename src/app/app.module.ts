@@ -22,6 +22,7 @@ import { PrayerRequestReviewComponent } from './Components/prayer-request-review
 import { TestimonialReviewComponent } from './Components/testimonial-review/testimonial-review.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { JwtInterceptor } from './Helpers/JwtInterceptor';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 //import { JwtModule } from '@auth0/angular-jwt';
 
 
@@ -49,7 +50,8 @@ import { JwtInterceptor } from './Helpers/JwtInterceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgIdleKeepaliveModule.forRoot()
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},

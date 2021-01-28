@@ -72,22 +72,22 @@ export class PrayerRequestReviewComponent implements OnInit {
     this.prayerRequestService.approvePrayerRequest(id).subscribe(data => {
       console.log("approving prayer request");
       if(data != null){
-        alert('Prayer Request has been Approved');
+        alert("Prayer Request has been Approved");
       }
       else{
-        alert('There was an error Approving the Prayer Request');
+        alert("There was an error Approving the Prayer Request");
       }})
-    location.reload();
+    window.location.reload();
   }
 
   denyRequest(id: number){
     this.prayerRequestService.denyPrayerRequest(id).subscribe(data => {
       console.log("denying prayer request");
       if(data != null){
-        alert('Prayer Request has been Denied');
+        alert("Prayer Request has been Denied");
       }
       else{
-        alert('There was an error Denying the Prayer Request');
+        alert("There was an error Denying the Prayer Request");
       }
     })
     location.reload();
@@ -97,10 +97,10 @@ export class PrayerRequestReviewComponent implements OnInit {
     this.prayerRequestService.pendingPrayerRequest(id).subscribe(data => {
       console.log("pending prayer request");
       if(data != null){
-        alert('Prayer Request has been returned to Pending');
+        alert("Prayer Request has been returned to Pending");
       }
       else{
-        alert('There was an error Pending the Prayer Request');
+        alert("There was an error Pending the Prayer Request");
       }
     })
     location.reload();
@@ -109,10 +109,10 @@ export class PrayerRequestReviewComponent implements OnInit {
   approveAllRequests(){
     this.prayerRequestService.approveAllPrayerRequests().subscribe(data => {console.log("approving all prayer requests");
       if(data == true){
-        alert('All Prayer Requests have been approved');
+        alert("All Prayer Requests have been approved");
       }
       else{
-      alert('There was an error approving all prayer requests');
+      alert("There was an error approving all prayer requests");
       }
     })
     location.reload();
@@ -121,10 +121,10 @@ export class PrayerRequestReviewComponent implements OnInit {
   deleteDeniedRequests(){
     this.prayerRequestService.deleteDeniedRequests().subscribe(data => {console.log("deleting denied prayer requests");
       if(data == true){
-        alert('ALL DENIED Prayer Requests have been deleted');
+        alert("ALL DENIED Prayer Requests have been deleted");
       }
       else{
-      alert('There was an error deleting all prayer requests');
+      alert("There was an error deleting all prayer requests");
       }
     })
     location.reload();

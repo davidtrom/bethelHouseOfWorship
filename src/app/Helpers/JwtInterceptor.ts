@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from '../Services/authentication.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor() { }
+
+    constructor(private authService: AuthenticationService) {
+     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         console.log(sessionStorage.getItem('username'));
         console.log(sessionStorage.getItem('token'));
-    if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+        console.log("in jwtInterceptor " + this.authService.getLoginStatus());
+    // if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+      if (this.authService.getLoginStatus()) {
       req = req.clone({
         setHeaders: {
           Accept: 'application/json',

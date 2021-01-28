@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   constructor(private http: HttpClient) {
-    this.isPastorLoggedIn$ = new BehaviorSubject<boolean>(false)
+    this.isPastorLoggedIn$ = new BehaviorSubject<boolean>(false);
    }
 
   verifyPastor(username:string, password:string){
@@ -31,8 +31,9 @@ export class AuthenticationService {
         console.log("verifying ", userData);
         sessionStorage.setItem('username', username);
         console.log("authentication service jwt: " + userData.jwt);
-        let tokenStr = 'Bearer ' + userData.jwt;
-        sessionStorage.setItem('token', tokenStr);
+        // let tokenStr = 'Bearer ' + userData.jwt;
+        // sessionStorage.setItem('token', tokenStr);
+        sessionStorage.setItem("token", userData.jwt);
         console.log("Token: " + sessionStorage.getItem('token'));
         if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
           this.setUserLoggedIn(true);
@@ -44,17 +45,12 @@ export class AuthenticationService {
   }
 
   setUserLoggedIn(status:boolean) {
-    // if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
-    //   this.isPastorLoggedIn$.next(true);
-    // }
-    // else{
-    //   this.isPastorLoggedIn$.next(false);
-    // }
     this.isPastorLoggedIn$.next(status);
   }
 
   getLoginStatus(): Observable<boolean> {
     return this.isPastorLoggedIn$.asObservable();
+    //return this.isPastorLoggedIn$;
   }
 
   logOut() {

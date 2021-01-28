@@ -9,12 +9,12 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
   collapsed: boolean = true;
-  pastorLoggedIn: boolean;
+  pastorLoggedIn: boolean = true;
 
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit(){
-    this.authService.getLoginStatus().subscribe(data => {this.pastorLoggedIn = data;});
+    //this.authService.getLoginStatus().subscribe(data => {this.pastorLoggedIn = data;});
   }
 
   collapse(): boolean{
