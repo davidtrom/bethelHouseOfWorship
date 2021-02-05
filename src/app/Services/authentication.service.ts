@@ -28,11 +28,11 @@ export class AuthenticationService {
   verifyPastor(username:string, password:string){
     return this.http.post<any>(this.loginUrl, {username, password})
       .pipe(map(userData => {
-        console.log("verifying ", userData);
+        console.log("verifying ");
         sessionStorage.setItem('username', username);
-        console.log("authentication service jwt: " + userData.jwt);
+        // console.log("authentication service jwt: " + userData.jwt);
         sessionStorage.setItem("token", userData.jwt);
-        console.log("Token: " + sessionStorage.getItem('token'));
+        // console.log("Token: " + sessionStorage.getItem('token'));
         if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
           this.setUserLoggedIn(true);
         }

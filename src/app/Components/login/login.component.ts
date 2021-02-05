@@ -30,8 +30,20 @@ export class LoginComponent implements OnInit {
   get form() { return this.loginForm.controls; }
 
   onSubmit(): void{
+    console.log(this.loginForm.controls.pastorUsername.value);
+    console.log(this.loginForm.controls.pastorPassword.value);
+  //   if (this.loginForm.controls.pastorUsername.value === "" || this.loginForm.controls.pastorPassword.value === "") {
+  //     this.invalidLogin = true;
+  //     console.log(this.invalidLogin);
+  //     return;
+  // }
+  if(this.loginForm.invalid){
+    this.invalidLogin = true;
+    this.loginForm.reset();
+  }
+  
     this.authService.verifyPastor(this.loginForm.controls.pastorUsername.value, this.loginForm.controls.pastorPassword.value).subscribe(data =>{
-      console.log("logging in ", data);
+      console.log("logging in ");
       //sessionStorage.setItem("token", data.jwt);
       if(this.pastorLoggedIn){
         this.router.navigate(['/pastor-dashboard']);

@@ -1,5 +1,6 @@
-import { Component, ViewChild, TemplateRef, ElementRef, AfterViewInit, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+//import { Component, ViewChild, TemplateRef, ElementRef, AfterViewInit, NgZone } from '@angular/core';
+//import { Router } from '@angular/router';
 
 // import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 // import { Keepalive } from '@ng-idle/keepalive';
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 // import { BsModalService } from 'ngx-bootstrap/modal';
 // import { BsModalRef } from 'ngx-bootstrap/modal';
 // import { ModalDirective } from 'ngx-bootstrap/modal';
-import { AuthenticationService } from './Services/authentication.service';
+//import { AuthenticationService } from './Services/authentication.service';
 
 
 @Component({

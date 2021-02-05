@@ -20,11 +20,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.subscription = this.authService.getLoginStatus().subscribe(data => {this.pastorLoggedIn = data;});
-    console.log("in header first check" + this.pastorLoggedIn);
     if(!this.pastorLoggedIn){
       if(sessionStorage.getItem("username") == "pastorAdminBHOW" && sessionStorage.getItem("token") != null) {
         this.pastorLoggedIn = true;
-        console.log("in header check 2" + this.pastorLoggedIn);
       }
     }
   }
