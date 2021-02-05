@@ -90,7 +90,7 @@ export class PrayerRequestReviewComponent implements OnInit {
         alert("There was an error Denying the Prayer Request");
       }
     })
-    location.reload();
+    window.location.reload();
   }
 
   pendingRequest(id: number){
@@ -103,7 +103,7 @@ export class PrayerRequestReviewComponent implements OnInit {
         alert("There was an error Pending the Prayer Request");
       }
     })
-    location.reload();
+    window.location.reload();
   }
 
   approveAllRequests(){
@@ -115,7 +115,7 @@ export class PrayerRequestReviewComponent implements OnInit {
       alert("There was an error approving all prayer requests");
       }
     })
-    location.reload();
+    window.location.reload();
   }
 
   deleteDeniedRequests(){
@@ -127,6 +127,6 @@ export class PrayerRequestReviewComponent implements OnInit {
       alert("There was an error deleting all prayer requests");
       }
     })
-    location.reload();
+    window.location.reload();
   }
 }

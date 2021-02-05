@@ -1,8 +1,8 @@
-import { Component, ViewChild, TemplateRef, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, TemplateRef, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
-import { Keepalive } from '@ng-idle/keepalive';
+// import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
+// import { Keepalive } from '@ng-idle/keepalive';
 
 // import { BsModalService } from 'ngx-bootstrap/modal';
 // import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -16,89 +16,92 @@ import { AuthenticationService } from './Services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bethelhow';
-  idleState = 'Not started.';
-  timedOut = false;
-  lastPing?: Date = null;
+  // title = 'bethelhow';
+  // idleState = 'Not started.';
+  // timedOut = false;
+  // lastPing?: Date = null;
 
   // public modalRef: BsModalRef;
 
   //  @ViewChild('childModal', { static: false }) childModal: ModalDirective;
 
-  constructor(private idle: Idle, private router:Router, private keepalive: Keepalive, private authService: AuthenticationService) {
-    // sets an idle timeout of 5 seconds, for testing purposes.
-    idle.setIdle(15);
-    // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
-    idle.setTimeout(15);
-    // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
-    idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+  constructor() {
+    // private zone: NgZone, private idle: Idle, private router:Router, private keepalive: Keepalive, private authService: AuthenticationService
+    // // sets an idle timeout of 5 seconds, for testing purposes.
+    // idle.setIdle(15);
+    // // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
+    // idle.setTimeout(15);
+    // // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
+    // idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
-    idle.onIdleEnd.subscribe(() => { 
-      this.idleState = 'No longer idle.'
-      console.log(this.idleState);
-      this.reset();
-    });
+    // idle.onIdleEnd.subscribe(() => { 
+    //   this.idleState = 'No longer idle.'
+    //   console.log(this.idleState);
+    //   this.reset();
+    // });
     
-    idle.onTimeout.subscribe(() => {
-      //this.childModal.hide();
-      this.idleState = 'Timed out!';
-      this.timedOut = true;
-      console.log(this.idleState);
-      this.logout();
-      this.router.navigate(['/']);
-    });
+    // idle.onTimeout.subscribe(() => {
+    //   //this.childModal.hide();
+    //   this.idleState = 'Timed out!';
+    //   this.timedOut = true;
+    //   console.log(this.idleState);
+    //   this.logout();
+    //   // this.zone.run(() => {
+    //   //   this.router.navigate(['/']);
+    //   // });
+    // });
     
-    idle.onIdleStart.subscribe(() => {
-        this.idleState = 'You\'ve gone idle!'
-        console.log(this.idleState);
-        alert("You've gone idle");
-        //this.childModal.show();
-    });
+    // idle.onIdleStart.subscribe(() => {
+    //     this.idleState = 'You\'ve gone idle!'
+    //     console.log(this.idleState);
+    //     alert("You've gone idle");
+    //     //this.childModal.show();
+    // });
     
-    idle.onTimeoutWarning.subscribe((countdown) => {
-      this.idleState = 'You will time out in ' + countdown + ' seconds!'
-      console.log(this.idleState);
-    });
+    // idle.onTimeoutWarning.subscribe((countdown) => {
+    //   this.idleState = 'You will time out in ' + countdown + ' seconds!'
+    //   console.log(this.idleState);
+    // });
 
-    // sets the ping interval to 15 seconds
-    keepalive.interval(15);
+    // // sets the ping interval to 15 seconds
+    // keepalive.interval(15);
 
-    keepalive.onPing.subscribe(() => this.lastPing = new Date());
+    // keepalive.onPing.subscribe(() => this.lastPing = new Date());
 
-    this.authService.getLoginStatus().subscribe(userLoggedIn => {
-      if (userLoggedIn) {
-        console.log("idle watch start")
-        idle.watch()
-        this.timedOut = false;
-      } else {
-        idle.stop();
-      }
-    })
+    // this.authService.getLoginStatus().subscribe(userLoggedIn => {
+    //   if (userLoggedIn) {
+    //     console.log("idle watch start")
+    //     idle.watch()
+    //     this.timedOut = false;
+    //   } else {
+    //     idle.stop();
+    //   }
+    // })
 
     // this.reset();
   }
 
-  reset() {
-    this.idle.watch();
-    //xthis.idleState = 'Started.';
-    this.timedOut = false;
-  }
+  // reset() {
+  //   this.idle.watch();
+  //   //xthis.idleState = 'Started.';
+  //   this.timedOut = false;
+  // }
 
-  hideChildModal(): void {
-    //this.childModal.hide();
-  }
+  // hideChildModal(): void {
+  //   //this.childModal.hide();
+  // }
 
-  stay() {
-    //this.childModal.hide();
-    this.reset();
-  }
+  // stay() {
+  //   //this.childModal.hide();
+  //   this.reset();
+  // }
 
-  logout() {
-    //this.childModal.hide();
-    this.authService.setUserLoggedIn(false);
-    this.authService.logOut();
-    this.router.navigate(['/']);
-  }
+  // logout() {
+  //   //this.childModal.hide();
+  //   this.authService.setUserLoggedIn(false);
+  //   this.authService.logOut();
+  //   this.router.navigate(['/']);
+  // }
 
 
 

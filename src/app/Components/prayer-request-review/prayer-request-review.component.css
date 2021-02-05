@@ -10,6 +10,9 @@
     text-align: center;
     padding-bottom: 1.5%;
 }
+a{
+    color: #422da3;
+}
 
 #approvedBtn{
     text-align: center;

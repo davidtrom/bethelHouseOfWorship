@@ -1,8 +1,9 @@
 #footer {
-    padding-top: 0;
-    margin-top: auto;
-    position: relative;
+    /* padding-top: 0; */
+    /* margin-top: auto; */
+    /* position: relative; */
     max-width: 100%;
+    max-height: 125%;
     color: white;
     background-color:#422da3;
 }
@@ -13,7 +14,7 @@
     height: 4vh;
 }
 
-.flex-container{
+#crossLogo{
     padding-top: 1.5%;
     display: flex;
     justify-content: space-around;

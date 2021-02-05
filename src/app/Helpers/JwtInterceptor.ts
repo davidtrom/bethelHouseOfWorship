@@ -5,16 +5,21 @@ import { AuthenticationService } from '../Services/authentication.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
+  currentUser: string;
+  amILoggedIn: boolean;
 
     constructor(private authService: AuthenticationService) {
+      //this.authService.getLoginStatus().subscribe(data => this.booleanCheck = data);
      }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         console.log(sessionStorage.getItem('username'));
         console.log(sessionStorage.getItem('token'));
-        console.log("in jwtInterceptor " + this.authService.getLoginStatus());
-    // if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
-      if (this.authService.getLoginStatus()) {
+        if (sessionStorage.getItem("username") == "pastorAdminBHOW" && sessionStorage.getItem("token") != null) {
+          this.amILoggedIn = true;
+          console.log("jwtInterceptor amILoggedIn: " + this.amILoggedIn);
+        }
+      if (sessionStorage.getItem("username") == "pastorAdminBHOW" && sessionStorage.getItem("token") != null) {
       req = req.clone({
         setHeaders: {
           Accept: 'application/json',
@@ -23,7 +28,6 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       })
     }
-    (console.log(sessionStorage.getItem('username') + " " + sessionStorage.getItem('token')))
     return next.handle(req);
   }
 

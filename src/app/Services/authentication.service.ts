@@ -31,8 +31,6 @@ export class AuthenticationService {
         console.log("verifying ", userData);
         sessionStorage.setItem('username', username);
         console.log("authentication service jwt: " + userData.jwt);
-        // let tokenStr = 'Bearer ' + userData.jwt;
-        // sessionStorage.setItem('token', tokenStr);
         sessionStorage.setItem("token", userData.jwt);
         console.log("Token: " + sessionStorage.getItem('token'));
         if((sessionStorage.getItem("username") != null) && (sessionStorage.getItem("token") != null)){
@@ -49,8 +47,7 @@ export class AuthenticationService {
   }
 
   getLoginStatus(): Observable<boolean> {
-    return this.isPastorLoggedIn$.asObservable();
-    //return this.isPastorLoggedIn$;
+    return this.isPastorLoggedIn$;
   }
 
   logOut() {
