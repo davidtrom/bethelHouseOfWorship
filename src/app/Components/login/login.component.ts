@@ -43,14 +43,20 @@ export class LoginComponent implements OnInit {
   }
   
     this.authService.verifyPastor(this.loginForm.controls.pastorUsername.value, this.loginForm.controls.pastorPassword.value).subscribe(data =>{
-      console.log("logging in ");
+      console.log("logging in ", data);
       //sessionStorage.setItem("token", data.jwt);
-      if(this.pastorLoggedIn){
-        this.router.navigate(['/pastor-dashboard']);
+      if (data == null){
+        this. invalidLogin = true;
       }
       else {
-        this.invalidLogin = true;
+        this.router.navigate(['/pastor-dashboard']);
       }
+      // if(this.pastorLoggedIn){
+      //   this.router.navigate(['/pastor-dashboard']);
+      // }
+      // else if (data == null){
+      //   this.invalidLogin = true;
+      // }
     })
   }
 
