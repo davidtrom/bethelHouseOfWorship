@@ -10,7 +10,7 @@
     padding-bottom: 1.5%;
 }
 
-hr{
+#topHR{
     border: 1px solid #422da3;
     margin-left: 20%;
     margin-right: 20%;
@@ -47,7 +47,7 @@ h3{
 
 #jesusWgirl{
     text-align: center;
-    padding-top: 1%;
+    margin-top: 1%;
 }
 
 #headphones{
@@ -57,4 +57,20 @@ h3{
 
 #link{
     font-size: larger;
+}
+
+@media screen and (max-width: 768px) {
+    #or{
+        font-size: larger;
+        margin-left: 35%;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #or{
+        font-size: larger;
+        margin-left: 15%;
+        font-weight: bold;
+    }
 }
